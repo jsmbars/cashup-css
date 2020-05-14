@@ -1,0 +1,198 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Table
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".cashup-table"
+
+#{$block}
+  position: relative
+  z-index: 10
+  display: block
+  width: 100%
+  border: 1px solid $c-gray-extra-light
+
+  // $Table MOD: type common
+  &_type_common
+    display: table
+
+  // $Table MOD: role configuration
+  &_role_configuration
+    min-width: 1200px
+
+
+  // $Table row
+  &__row
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+    background-color: $c-white
+
+    #{$block}_type_common &
+      display: table-row
+
+    &:last-of-type
+      border-bottom: none
+
+    &:not(#{$block}_role_header):nth-child(odd)
+      background-color: $c-gray-hyper-light
+
+      #{$block}_role_configuration &
+        background-color: $c-white
+
+    // $Table row MOD: role header
+    &_role_header
+      background-color: $c-gray-hyper-light
+
+
+  // $Table cell
+  &__cell
+    flex-grow: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    min-height: 50px
+    padding: 15px 10px
+    border-bottom: 1px solid $c-gray-extra-light
+
+    #{$block}__row:last-child &
+      border-bottom: none
+
+    #{$block}_type_common &
+      height: 50px
+      text-align: left
+      vertical-align: middle
+      border-bottom: 1px solid $c-gray-extra-light
+
+    &:not(:last-child)
+      border-right: 1px solid $c-gray-extra-light
+
+    // $Table cell first column
+    &:nth-child(1)
+      #{$block}_role_configuration &
+        width: 10%
+        min-width: 150px
+        max-width: 300px
+
+    // $Table cell second column
+    &:nth-child(2)
+      #{$block}_role_configuration &
+        width: 38%
+        padding-bottom: 5px
+
+    // $Table cell third column
+    &:nth-child(3)
+      #{$block}_role_configuration &
+        width: 40%
+        padding-bottom: 5px
+
+    // $Table cell fourth column
+    &:nth-child(4)
+      #{$block}_role_configuration &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 200px
+
+    // $Table cell MOD: role header
+    // $Table cell MOD: role footer
+    &_role_header,
+    &_role_footer
+      height: 50px
+      font-size: 14px
+      font-family: $f-sans
+      font-weight: 600
+      color: $c-gray-ultra-dark
+
+    &_role_header
+      #{$block}_role_configuration &
+        justify-content: center
+        text-align: center
+
+
+  // $Table info
+  &__info
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+
+    #{$block}_role_configuration #{$block}__cell:nth-child(2) &,
+    #{$block}_role_configuration #{$block}__cell:nth-child(3) &
+      padding-right: 10px
+
+  // $Table service
+  &__service
+    flex-grow: 0
+    flex-shrink: 0
+
+
+  // $Table field
+  &__field
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+
+  // $Table text
+  &__text
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 400
+    color: $c-gray-ultra-dark
+
+    #{$block}__cell_role_header &,
+    #{$block}__cell_role_footer &
+      font-weight: 600
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
+
+  // $Table actions
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+
+  // $Table action
+  &__action
+
+    #{$block}_role_configuration #{$block}__cell:nth-child(2) &,
+    #{$block}_role_configuration #{$block}__cell:nth-child(3) &
+      margin-bottom: 10px
+
+    &:not(:last-child)
+      margin-right: 15px
+
+
+  // $Table labels
+  &__labels
+    #{$block}_role_configuration #{$block}__cell:nth-child(2) &,
+    #{$block}_role_configuration #{$block}__cell:nth-child(3) &
+      min-height: 35px
+
+
+  // $Table label
+  &__label
+
