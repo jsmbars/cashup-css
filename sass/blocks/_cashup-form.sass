@@ -180,12 +180,24 @@ $block: ".cashup-form"
     flex-direction: row
     justify-content: center
     align-items: center
+    width: 100%
+
+    // $Form actions MOD: justify start
+    &_justify_start
+      justify-content: flex-start
+
+    // $Form actions MOD: justify end
+    &_justify_end
+      justify-content: flex-end
 
 
   // $Form action
   &__action
     flex-grow: 0
     flex-shrink: 1
+
+    &:not(:last-child)
+      margin-right: 20px
 
 
   // $Form text

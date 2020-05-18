@@ -34,7 +34,7 @@ $label-icons: ("close" "e908", "check" "e907", "pencil" "e903")
 
 //////////////////////////////////////// Block mixins and functions
 
-=label-common($color: $c-white, $background-color: $c-gray-ultra-dark, $border-color: $c-gray-ultra-dark, $border-width: 2px, $border-radius: 4px)
+=label-common($color: $c-white, $background-color: $c-gray-ultra-dark, $border-color: transparent, $border-width: 2px, $border-radius: 4px)
   color: $color
   background-color: $background-color
   border: $border-width solid $border-color
@@ -127,9 +127,9 @@ $block: ".cashup-label"
   @each $label-gray-color-name, $label-gray-color-value in $label-gray-colors
     &_color_#{$label-gray-color-name}
       @if $label-gray-color-name == "gray-light" or $label-gray-color-name == "gray-extra-light"
-        +label-common($color: $c-gray-ultra-dark, $background-color: $label-gray-color-value, $border-color: $label-gray-color-value)
+        +label-common($color: $c-gray-ultra-dark, $background-color: $label-gray-color-value)
       @else
-        +label-common($color: $c-white, $background-color: $label-gray-color-value, $border-color: $label-gray-color-value)
+        +label-common($color: $c-white, $background-color: $label-gray-color-value)
 
     &_border_#{$label-gray-color-name},
     &_color_#{$label-gray-color-name}.is-edit
@@ -141,7 +141,7 @@ $block: ".cashup-label"
   // Accent medium color and border modifiers
   @each $label-accent-medium-color-name, $label-accent-medium-color-value in $label-accent-medium-colors
     &_color_#{$label-accent-medium-color-name}
-      +label-common($color: $c-white, $background-color: $label-accent-medium-color-value, $border-color: $label-accent-medium-color-value)
+      +label-common($color: $c-white, $background-color: $label-accent-medium-color-value)
 
     &_border_#{$label-accent-medium-color-name},
     &_color_#{$label-accent-medium-color-name}.is-edit
@@ -150,7 +150,7 @@ $block: ".cashup-label"
   // Accent light color and border modifiers
   @each $label-accent-light-color-name, $label-accent-light-color-value in $label-accent-light-colors
     &_color_#{$label-accent-light-color-name}
-      +label-common($color: $c-gray-ultra-dark, $background-color: $label-accent-light-color-value, $border-color: $label-accent-light-color-value)
+      +label-common($color: $c-gray-ultra-dark, $background-color: $label-accent-light-color-value)
 
   @each $label-accent-light-color-name, $label-accent-light-color-value in $label-accent-light-colors
     &_border_#{$label-accent-light-color-name},
