@@ -17,7 +17,7 @@ $button-gray-colors: ("gray-extra-dark" $c-gray-extra-dark, "gray-dark" $c-gray-
 $button-accent-medium-colors: ("pink-medium" $c-pink-medium, "red-medium" $c-red-medium, "orange-medium" $c-orange-medium, "yellow-medium" $c-yellow-medium, "green-medium" $c-green-medium, "turquoise-medium" $c-turquoise-medium, "blue-medium" $c-blue-medium, "purple-medium" $c-purple-medium)
 
 // $button-icon-name, $button-glyph-code, $button-glyph-size
-$button-icons: ("plus" "e909" 12px, "close" "e908" 12px, "check" "e907" 10px, "pencil" "e903" 12px)
+$button-icons: ("plus" "e909" 12px, "close" "e908" 12px, "check" "e907" 10px, "pencil" "e903" 12px, "retry" "e913" 12px)
 
 
 //////////////////////////////////////// Block mixins and functions
@@ -44,7 +44,7 @@ $button-icons: ("plus" "e909" 12px, "close" "e908" 12px, "check" "e907" 10px, "p
     border-radius: $border-radius
 
 
-=button-bordered-hover($color:$c-white, $background-color: $c-gray-ultra-dark, $border-color: $c-gray-ultra-dark)
+=button-bordered-hover($color:$c-white, $background-color: $c-gray-ultra-dark, $border-color: transparent)
   &:not(:disabled):not([disabled]):not(.is-disabled):hover
     color: $color
     background-color: $background-color
@@ -88,7 +88,10 @@ $block: ".cashup-button"
 #{$block}
   +button-common()
   +button-common-hover()
-  display: inline-block
+  display: inline-flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
   height: 40px
   padding: 0 25px
   border-radius: 4px
@@ -117,10 +120,10 @@ $block: ".cashup-button"
     vertical-align: middle
 
   &:not(:empty):before
-    margin-right: 5px
+    margin-right: 10px
 
   &:not(:empty):after
-    margin-left: 5px
+    margin-left: 10px
 
   &:focus
     outline: none
@@ -192,10 +195,10 @@ $block: ".cashup-button"
     &_border_#{$button-gray-color-name}
       @if $button-gray-color-name == "gray-light" or $button-gray-color-name == "gray-extra-light"
         +button-bordered($color: $c-gray-ultra-dark, $background-color: transparent, $border-color: $button-gray-color-value)
-        +button-bordered-hover($color: $c-gray-ultra-dark, $background-color: $button-gray-color-value, $border-color: $button-gray-color-value)
+        +button-bordered-hover($color: $c-gray-ultra-dark, $background-color: $button-gray-color-value)
       @else
         +button-bordered($color: $button-gray-color-value, $background-color: transparent, $border-color: $button-gray-color-value)
-        +button-bordered-hover($color: $c-white, $background-color: $button-gray-color-value, $border-color: $button-gray-color-value)
+        +button-bordered-hover($color: $c-white, $background-color: $button-gray-color-value)
 
   // Accent medium color and border modifiers
   @each $button-accent-medium-color-name, $button-accent-medium-color-value in $button-accent-medium-colors
@@ -205,7 +208,7 @@ $block: ".cashup-button"
 
     &_border_#{$button-accent-medium-color-name}
       +button-bordered($color: $button-accent-medium-color-value, $background-color: transparent, $border-color: $button-accent-medium-color-value)
-      +button-bordered-hover($color: $c-white, $background-color: $button-accent-medium-color-value, $border-color: $button-accent-medium-color-value)
+      +button-bordered-hover($color: $c-white, $background-color: $button-accent-medium-color-value)
 
   // Icon modifiers
   @each $button-icon-name, $button-glyph-code, $button-glyph-size in $button-icons

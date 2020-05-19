@@ -26,6 +26,7 @@ $block: ".cashup-modal"
   width: 95%
   max-width: 960px
   margin: 0 auto
+  box-shadow: 0 2px 8px -2px $c-shadow-primary
 
   #{$block}-portal &
     z-index: 10002
@@ -307,9 +308,19 @@ $block: ".cashup-modal"
     justify-content: center
     width: 100%
 
+    // $Modal window actions MOD: justify start
+    &_justify_start
+      justify-content: flex-start
+
+    // $Modal window actions MOD: justify end
+    &_justify_end
+      justify-content: flex-end
+
 
   // $Modal window action
   &__action
+    flex-grow: 0
+    flex-shrink: 1
 
     &:not(:last-child)
       margin-right: 20px
@@ -397,9 +408,7 @@ $block: ".cashup-modal"
 
   // $Modal window title wrap
   &__title-wrap
-    overflow-wrap: break-word
     word-wrap: break-word
-    word-break: break-word
     hyphens: auto
 
 
@@ -443,9 +452,7 @@ $block: ".cashup-modal"
 
   // $Modal window subtitle wrap
   &__subtitle-wrap
-    overflow-wrap: break-word
     word-wrap: break-word
-    word-break: break-word
     hyphens: auto
 
 
@@ -460,9 +467,7 @@ $block: ".cashup-modal"
 
   // $Modal window text wrap
   &__text-wrap
-    overflow-wrap: break-word
     word-wrap: break-word
-    word-break: break-word
     hyphens: auto
 
 

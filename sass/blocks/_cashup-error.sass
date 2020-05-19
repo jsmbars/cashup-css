@@ -56,19 +56,13 @@ $block: ".cashup-error"
       z-index: 11
       display: block
 
-  // $Error message MOD: position above
-  &_position_above
+  // $Error message MOD: position top
+  &_position_top
     margin-bottom: 10px
 
-  &_position_above#{&}_type_general
+  // $Error message MOD: position top MOD: type general
+  &_position_top#{&}_type_general
     margin-bottom: 20px
-
-  // $Error message MOD: position below
-  &_position_below
-    margin-top: 10px
-
-  &_position_below#{&}_type_general
-    margin-top: 20px
 
   // $Error message MOD: position top left
   &_position_top-left#{&}_type_tooltip
@@ -83,6 +77,7 @@ $block: ".cashup-error"
       border-right: 5px solid transparent
       border-left: 5px solid transparent
 
+  // $Error message MOD: position top left MOD: type tooltip MOD: adjust field label
   &_position_top-left#{&}_type_tooltip#{&}_adjust_label
     bottom: calc(100% - 25px)
 
@@ -99,10 +94,19 @@ $block: ".cashup-error"
       border-right: 5px solid transparent
       border-left: 5px solid transparent
 
+  // $Error message MOD: position top right MOD: type tooltip MOD: adjust field label
   &_position_top-right#{&}_type_tooltip#{&}_adjust_label
     bottom: calc(100% - 25px)
 
-  // $Error message MOD: position bottom left
+  // $Error message MOD: position bottom
+  &_position_bottom
+    margin-top: 10px
+
+  // $Error message MOD: position bottom MOD: type general
+  &_position_bottom#{&}_type_general
+    margin-top: 20px
+
+  // $Error message MOD: position bottom left MOD: type tooltip
   &_position_bottom-left#{&}_type_tooltip
     left: 0
     top: 100%
@@ -115,7 +119,7 @@ $block: ".cashup-error"
       border-right: 5px solid transparent
       border-left: 5px solid transparent
 
-  // $Error message MOD: position bottom right
+  // $Error message MOD: position bottom right MOD: type tooltip
   &_position_bottom-right#{&}_type_tooltip
     right: 0
     top: 100%
