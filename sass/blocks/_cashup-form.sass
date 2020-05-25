@@ -35,7 +35,7 @@ $block: ".cashup-form"
     flex-direction: row
     justify-content: space-between
     align-items: center
-    padding: 10px 10px 10px 20px
+    padding: 20px
     border-bottom: 1px solid $c-gray-extra-light
     background-color: $c-gray-hyper-light
 
@@ -46,6 +46,10 @@ $block: ".cashup-form"
 
   // $Form board title
   &__board-title
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    max-width: 100%
     font-size: 18px
     line-height: 1
     font-family: $f-sans
@@ -55,24 +59,26 @@ $block: ".cashup-form"
 
   // $Form board toggle
   &__board-toggle
-    position: relative
+    flex-grow: 0
+    flex-shrink: 0
     display: block
-    width: 30px
-    height: 30px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    text-decoration: none
+    white-space: nowrap
     cursor: pointer
+    transition: all .3s
 
     &:before
       content: '\e90f'
-      position: absolute
-      top: 50%
-      left: 50%
-      display: block
-      font-family: icons
+      display: inline-block
+      font-family: 'icons'
       font-size: 30px
-      line-height: 1
+      line-height: 18px
       color: $c-gray-extra-dark
-      transform: translate(-50%,-50%)
-      transition: all, .3s
+      transition: all .3s
 
       // $Form board toggle CONTEXT: $Form board STATE: closed
       #{$block}__board.is-closed &
