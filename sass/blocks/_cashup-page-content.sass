@@ -78,6 +78,16 @@ $block: ".cashup-page-content"
       padding-left: 20px
 
 
+  // $Page content section
+  &__section
+    flex-grow: 0
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
   // $Page content header
   &__header
     flex-grow: 0
@@ -117,30 +127,3 @@ $block: ".cashup-page-content"
   &__buttons
     flex-grow: 0
     flex-shrink: 0
-
-
-  // $Page content board
-  &__board
-    flex-grow: 0
-    width: 100%
-    padding: 20px
-    background-color: $c-white
-    box-shadow: 0 2px 8px -2px $c-shadow-primary
-
-    &:not(:last-child)
-      margin-bottom: 20px
-
-
-  // $Page content group
-  &__group
-    display: block
-    width: 100%
-
-    &:not(:last-child)
-      margin-bottom: 20px
-
-    // $Page content group MOD: role form
-    &_role_form
-
-    // $Page content group MOD: role table
-    &_role_table
