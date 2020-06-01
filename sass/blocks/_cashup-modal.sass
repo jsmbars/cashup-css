@@ -8,6 +8,13 @@
 //////////////////////////////////////// Block variables
 
 
+// $modal-accent-medium-highlight-name, $modal-accent-medium-highlight-value
+$modal-accent-medium-highlights: ("pink-medium" $c-pink-medium, "red-medium" $c-red-medium, "orange-medium" $c-orange-medium, "yellow-medium" $c-yellow-medium, "green-medium" $c-green-medium, "turquoise-medium" $c-turquoise-medium, "blue-medium" $c-blue-medium, "purple-medium" $c-purple-medium)
+
+%modal-text-light
+  color: $c-white
+
+
 //////////////////////////////////////// Block mixins and functions
 
 
@@ -139,17 +146,18 @@ $block: ".cashup-modal"
   // $Modal window close
   &__close
     position: absolute
-    top: 20px
-    right: 10px
+    top: 15px
+    right: 15px
     z-index: 10003
     display: block
-    width: 40px
-    height: 40px
+    width: 30px
+    height: 30px
     margin: 0
     padding: 0
     border: none
     border-radius: 50%
     background-color: transparent
+    text-align: center
     cursor: pointer
     outline: none
 
@@ -160,19 +168,13 @@ $block: ".cashup-modal"
       content: '\e901'
       font-family: 'icons'
       font-size: 18px
-      line-height: 40px
-      text-align: center
+      line-height: 30px
       color: $c-gray-ultra-dark
       transition: all .3s
 
-      #{$block}__header_color_red-medium &,
-      #{$block}__header_color_orange-medium &,
-      #{$block}__header_color_yellow-medium &,
-      #{$block}__header_color_green-medium &,
-      #{$block}__header_color_blue-medium &,
-      #{$block}__header_color_purple-medium &,
-      #{$block}__header_color_pin-mediumk &
-        color: $c-white
+      @each $modal-accent-medium-highlight-name, $modal-accent-medium-highlight-value in $modal-accent-medium-highlights
+        #{$block}__header_highlight_#{$modal-accent-medium-highlight-name} &
+          @extend %modal-text-light
 
     &:hover
       &:after
@@ -184,6 +186,7 @@ $block: ".cashup-modal"
   &__header,
   &__footer
     position: relative
+    display: block
     width: 100%
     padding: 20px
     background-color: $c-gray-hyper-light
@@ -210,26 +213,9 @@ $block: ".cashup-modal"
     &_justify_center
       text-align: center
 
-    &_color_red-medium
-      background-color: $c-red-medium
-
-    &_color_orange-medium
-      background-color: $c-orange-medium
-
-    &_color_yellow-medium
-      background-color: $c-yellow-medium
-
-    &_color_green-medium
-      background-color: $c-green-medium
-
-    &_color_blue-medium
-      background-color: $c-blue-medium
-
-    &_color_purple-medium
-      background-color: $c-purple-medium
-
-    &_color_pink-medium
-      background-color: $c-pink-medium
+    @each $modal-accent-medium-highlight-name, $modal-accent-medium-highlight-value in $modal-accent-medium-highlights
+      &_highlight_#{$modal-accent-medium-highlight-name}
+        background-color: $modal-accent-medium-highlight-value
 
 
   // Modal window header group
@@ -257,6 +243,7 @@ $block: ".cashup-modal"
 
   // $Modal window content
   &__content
+    display: block
     width: 100%
     padding: 20px
     border-radius: 10px
@@ -290,6 +277,7 @@ $block: ".cashup-modal"
 
   // $Modal window content group
   &__group
+    display: block
     width: 100%
 
     &:not(:last-child)
@@ -375,25 +363,16 @@ $block: ".cashup-modal"
     font-weight: 400
     color: $c-gray-ultra-dark
 
-    #{$block}__header_color_red-medium &,
-    #{$block}__header_color_orange-medium &,
-    #{$block}__header_color_yellow-medium &,
-    #{$block}__header_color_green-medium &,
-    #{$block}__header_color_blue-medium &,
-    #{$block}__header_color_purple-medium &,
-    #{$block}__header_color_pin-mediumk &
-      color: $c-white
+    @each $modal-accent-medium-highlight-name, $modal-accent-medium-highlight-value in $modal-accent-medium-highlights
+      #{$block}__header_highlight_#{$modal-accent-medium-highlight-name} &
+        @extend %modal-text-light
 
     &:not(:last-child)
       margin-bottom: 20px
 
-    // $Modal window title MOD: size small
-    &_size_s
-      font-size: 20px
-
     // $Modal window title MOD: size large
     &_size_l
-      font-size: 28px
+      font-size: 30px
 
 
   // $Modal window title bold
@@ -415,17 +394,13 @@ $block: ".cashup-modal"
   // $Modal window subtitle
   &__subtitle
     font-family: $f-sans
-    font-size: 20px
+    font-size: 18px
     line-height: 1.5
     color: $c-gray-dark
     font-weight: 400
 
     &:not(:last-child)
       margin-bottom: 10px
-
-    // $Modal window subtitle MOD: size small
-    &_size_s
-      font-size: 18px
 
     // $Modal window subtitle MOD: size large
     &_size_l
@@ -459,10 +434,14 @@ $block: ".cashup-modal"
   // $Modal window text
   &__text
     font-family: $f-sans
-    font-size: 16px
+    font-size: 14px
     line-height: 1.5
     color: $c-gray-ultra-dark
     font-weight: 400
+
+    // $Modal window text MOD: size large
+    &_size_l
+      font-size: 16px
 
 
   // $Modal window text wrap

@@ -7,6 +7,18 @@
 
 //////////////////////////////////////// Block variables
 
+// $form-space-name, $form-space-size
+$form-spaces: ("xxs" 10px, "xs" 15px, "s" 15px, "m" 20px, "l" 25px, "xl" 25px, "xxl" 30px)
+
+// $form-highlight-name, $form-highlight-background
+$form-highlights: ("pink-extra-light" $c-pink-extra-light, "red-extra-light" $c-red-extra-light, "orange-extra-light" $c-orange-extra-light, "yellow-extra-light" $c-yellow-extra-light, "green-extra-light" $c-green-extra-light, "turquoise-extra-light" $c-turquoise-extra-light, "blue-extra-light" $c-blue-extra-light, "purple-extra-light" $c-purple-extra-light, "gray-extra-light" $c-gray-extra-light)
+
+// $form-color-name, $form-color-value
+$form-colors: ("pink-medium" $c-pink-medium, "red-medium" $c-red-medium, "orange-medium" $c-orange-medium, "yellow-medium" $c-yellow-medium, "green-medium" $c-green-medium, "turquoise-medium" $c-turquoise-medium, "blue-medium" $c-blue-medium, "purple-medium" $c-purple-medium, "gray-medium" $c-gray-medium)
+
+%form-space-position-last
+  margin-right: 0
+  margin-bottom: 0
 
 //////////////////////////////////////// Block mixins and functions
 
@@ -19,6 +31,18 @@ $block: ".cashup-form"
   width: 100%
 
 
+  // $Form delimiter
+  &__delimiter
+    display: block
+    width: 100%
+    margin-bottom: 20px
+    border-bottom: 1px solid $c-gray-extra-light
+
+    @each $form-space-name, $form-space-size in $form-spaces
+      #{$block}_space_#{$form-space-name} &
+        margin-bottom: $form-space-size
+
+
   // $Form board
   &__board
     display: block
@@ -26,6 +50,7 @@ $block: ".cashup-form"
     background-color: #FFF
     border: 1px solid $c-gray-extra-light
 
+    // $Form board STATE: closed
     &.is-closed
 
 
@@ -107,14 +132,40 @@ $block: ".cashup-form"
     width: 100%
     margin-bottom: 20px
 
+    @each $form-space-name, $form-space-size in $form-spaces
+      #{$block}_space_#{$form-space-name} &
+        margin-bottom: $form-space-size
+
+    // $Form row MOD: justify center
+    &_justify_center
+      justify-content: center
+
+    // $Form row MOD: justify end
+    &_justify_end
+      justify-content: flex-end
+
+    // $Form row MOD: align center
+    &_align_center
+      align-items: center
+
+    // $Form row MOD: align end
+    &_align_end
+      align-items: flex-end
+
     // $Form row MOD: position last
+    &:last-child,
     &_position_last
-      margin-right: 0
       margin-bottom: 0
 
+      @each $form-space-name, $form-space-size in $form-spaces
+        #{$block}_space_#{$form-space-name} &
+          @extend %form-space-position-last
 
+
+  // $Form area
   // $Form group
   // $Form field
+  &__area,
   &__group,
   &__field
     position: relative
@@ -122,43 +173,61 @@ $block: ".cashup-form"
     width: 100%
     margin-bottom: 20px
 
+    @each $form-space-name, $form-space-size in $form-spaces
+      #{$block}_space_#{$form-space-name} &
+        margin-bottom: $form-space-size
+
+    // $Form area MOD: size half
     // $Form group MOD: size half
+    // $Form field MOD: size half
     &_size_half
       flex-grow: 0
       flex-shrink: 1
       width: 50%
 
+    // $Form area MOD: size third
     // $Form group MOD: size third
+    // $Form field MOD: size third
     &_size_third
       flex-grow: 0
       flex-shrink: 1
       width: 33%
 
+    // $Form area MOD: size fourth
     // $Form group MOD: size fourth
+    // $Form field MOD: size fourth
     &_size_fourth
       flex-grow: 0
       flex-shrink: 1
       width: 25%
 
+    // $Form area MOD: size fifth
     // $Form group MOD: size fifth
+    // $Form field MOD: size fifth
     &_size_fifth
       flex-grow: 0
       flex-shrink: 1
       width: 20%
 
+    // $Form area MOD: size sixth
     // $Form group MOD: size sixth
+    // $Form field MOD: size sixth
     &_size_sixth
       flex-grow: 0
       flex-shrink: 1
       width: 16.6%
 
+    // $Form area MOD: size max
     // $Form group MOD: size max
+    // $Form field MOD: size max
     &_size_max
       flex-grow: 1
       flex-shrink: 1
       width: auto
 
+    // $Form area MOD: size min
     // $Form group MOD: size min
+    // $Form field MOD: size min
     &_size_min
       flex-grow: 0
       flex-shrink: 1
@@ -171,13 +240,39 @@ $block: ".cashup-form"
     &_size_sixth,
     &_size_max,
     &_size_min
-      margin-right: 20px
       margin-bottom: 0
+      margin-right: 20px
 
+      @each $form-space-name, $form-space-size in $form-spaces
+        #{$block}_space_#{$form-space-name} &
+          margin-bottom: 0
+          margin-right: $form-space-size
+
+    // $Form area: MOD: position last
     // $Form group: MOD: position last
+    // $Form field: MOD: position last
+    &:last-child,
     &_position_last
       margin-right: 0
       margin-bottom: 0
+
+      @each $form-space-name, $form-space-size in $form-spaces
+        #{$block}_space_#{$form-space-name} &
+          @extend %form-space-position-last
+
+
+  // $Form area
+  &__area
+    padding: 20px
+    background-color: $c-gray-hyper-light
+
+    @each $form-space-name, $form-space-size in $form-spaces
+      #{$block}_space_#{$form-space-name} &
+        padding: $form-space-size
+
+    @each $form-highlight-name, $form-highlight-background, $form-highlight-border in $form-highlights
+      &_highlight_#{$form-highlight-name}
+        background-color: $form-highlight-background
 
 
   // $Form actions
@@ -208,11 +303,33 @@ $block: ".cashup-form"
 
   // $Form text
   &__text
+    display: block
+    width: 100%
     font-family: $f-sans
     font-size: 14px
     line-height: 1
     font-weight: 400
     color: $c-gray-ultra-dark
+
+    @each $form-color-name, $form-color-value in $form-colors
+      &_color_#{$form-color-name}
+        color: $form-color-value
+
+    // $Form text MOD: size small
+    &_size_s
+      font-size: 12px
+
+    // $Form text MOD: size large
+    &_size_l
+      font-size: 16px
+
+    // $Form row MOD: justify center
+    &_justify_center
+      text-align: center
+
+    // $Form row MOD: justify end
+    &_justify_end
+      text-align: right
 
 
   // $Form text bold
