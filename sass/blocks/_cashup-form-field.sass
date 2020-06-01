@@ -109,6 +109,9 @@ $block: ".cashup-form-field"
   // $Form field MOD: adjust till panel
   &_adjust_till
 
+  // $Form field MOD: adjust pdq slip calc
+  &_adjust_pdq-slip-calc
+
 
   // $Form field group
   &__group
@@ -147,6 +150,9 @@ $block: ".cashup-form-field"
     #{$block}_adjust_till #{$block}__group &,
     #{$block}_adjust_till-lift #{$block}__group &
       flex-grow: 1
+
+    #{$block}_adjust_pdq-slip-calc #{$block}__group &
+      width: 100px
 
     &:first-child
       #{$block}__group &
