@@ -2,7 +2,7 @@
 @import '../helpers/mixins'
 
 ////////////////////////////////////////
-// $Cashup Date Picker
+// $Datepicker
 ////////////////////////////////////////
 
 //////////////////////////////////////// Block variables
@@ -17,10 +17,101 @@ $block: ".cashup-datepicker"
 #{$block}
   position: relative
   display: block
-  width: 100%
-  max-width: 320px
+  width: 310px
+  margin: 0 auto
+  background-color: $c-white
 
-   // $Vendor Date Picker overlay
+  //  $Datepicker init input
+  &__init-input,
+  &__init-input[hidden]
+    display: none
+
+
+  //  $Datepicker calendar
+  &__calendar
+    position: relative
+    display: block
+    width: 100%
+
+
+  //  $Datepicker actions
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 100%
+    margin-top: 5px
+    padding: 10px 10px 0
+    border-top: 1px solid $c-gray-extra-light
+
+
+  //  $Datepicker action
+  &__action
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    height: 30px
+    padding: 0 15px
+    border-radius: 4px
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 1
+    font-weight: 400
+    color: $c-white
+    background-color: $c-gray-ultra-dark
+    white-space: nowrap
+    vertical-align: middle
+    text-align: center
+    text-transform: inherit
+    text-decoration: none
+    outline: none
+    cursor: pointer
+    border: none
+    transition: all .3s
+
+    &:before
+      display: inline-block
+      margin-right: 10px
+      font-family: icons
+      font-size: 10px
+      line-height: 1
+      font-weight: 400
+      color: inherit
+      vertical-align: middle
+
+    &:focus
+      outline: none
+
+    &:disabled,
+    &[disabled],
+      background-color: $c-gray-ultra-light !important
+      border-color: $c-gray-extra-light !important
+      color: $c-gray-medium !important
+      cursor: not-allowed
+
+    &:not(:last-child)
+      margin-right: 15px
+
+    //  $Datepicker action MOD: role cancel
+    &_role_cancel
+      background-color: $c-red-medium
+      color: $c-white
+      &:before
+        content: unquote("\'\\e908\'")
+
+    //  $Datepicker action MOD: role confirm
+    &_role_confirm
+      background-color: $c-turquoise-medium
+      color: $c-white
+      &:before
+        content: unquote("\'\\e907\'")
+
+
+  //  $Datepicker overlay
   &-overlay
     position: fixed
     top: 0
@@ -36,237 +127,209 @@ $block: ".cashup-datepicker"
     overflow-y: auto
     background-color: rgba(0,0,0,.75)
 
+
   &-overlay &
     z-index: 10002
-
-  // $Vendor Date Picker MOD: type single
-  &_type_single
-
-  // $Vendor Date Picker MOD: type week
-  &_type_week
-
-  // $Vendor Date Picker MOD: type range
-  &_type_range
+    width: 320px
+    padding: 5px 5px 10px
+    border-radius: 10px
+    box-shadow: 0 2px 8px -2px $c-shadow-primary
 
 
-  // Common Overrides
-  & .ui-datepicker
-    box-sizing: border-box
-    width: 100%
-    padding: 0 20px 20px
-    font-size: 14px
+  // Vendor styles overrides
+  & .flatpickr-calendar
+    font-family: $f-sans
+    box-shadow: none
+    border-radius: 0
     background-color: $c-white
-    border: none
-    overflow: hidden
 
-    @media screen and (max-width: 480px)
-      padding: 0 15px
+  & .flatpickr-months
+    margin-bottom: 5px
+    padding-bottom: 10px
+    border-bottom: 1px solid $c-gray-extra-light
 
+  & .flatpickr-months .flatpickr-prev-month,
+  & .flatpickr-months .flatpickr-next-month
+    fill: $c-gray-ultra-dark
 
-    & .ui-datepicker-header
-      position: relative
-      padding: 20px 25px
-      background: none
-      background-color: $c-white
-      border: none
+  & .flatpickr-months .flatpickr-prev-month,
+  & .flatpickr-months .flatpickr-next-month
+    fill: $c-gray-ultra-dark
 
-      &:after
-        content: ''
-        position: absolute
-        bottom: 0
-        left: -20px
-        right: -20px
-        display: block
-        border-bottom: 1px solid $c-gray-light
+  & .flatpickr-months .flatpickr-prev-month svg,
+  & .flatpickr-months .flatpickr-next-month svg
+    width: 20px
+    height: 20px
 
+  & .flatpickr-months .flatpickr-prev-month:hover svg,
+  & .flatpickr-months .flatpickr-next-month:hover svg
+    fill: $c-turquoise-medium
 
-    & .ui-datepicker-prev,
-    & .ui-datepicker-next
-      top: 50%
-      width: 20px
-      height: 20px
-      margin-top: -12px
-      cursor: pointer
+  & .flatpickr-calendar.showTimeInput.hasTime .flatpickr-time
+    height: 50px
+    max-height: 50px
+    margin-top: 10px
+    padding-top: 10px
+    border-color: $c-gray-extra-light
 
-      & span
-        display: block
-        width: 20px
-        height: 20px
-        background-image: none
-        color: transparent
-        font-size: 0
+  & .flatpickr-calendar.showTimeInput.hasTime .flatpickr-am-pm,
+  & .flatpickr-calendar.showTimeInput.hasTime .flatpickr-time-separator,
+  & .flatpickr-time input.flatpickr-hour,
+  & .flatpickr-time input.flatpickr-minute, .flatpickr-time input.flatpickr-second
+    font-family: $f-sans
+    font-size: 14px
 
-        &:before
-          content: ''
-          display: block
-          font-family: icons
-          font-size: 30px
-          line-height: 20px
-          font-weight: normal
-          color: $c-gray-dark
-          text-indent: 0
-          transition: color .3s
+  & .flatpickr-calendar.showTimeInput.hasTime .flatpickr-am-pm,
+  & .flatpickr-calendar.showTimeInput.hasTime .flatpickr-time-separator
+    height: 40px
 
-        &:hover:before
-          color: $c-gray-ultra-dark
+  & .flatpickr-time input.flatpickr-hour,
+  & .flatpickr-time input.flatpickr-minute, .flatpickr-time input.flatpickr-second
+    font-weight: 400
 
+  & .flatpickr-time input:hover,
+  & .flatpickr-time .flatpickr-am-pm:hover,
+  & .flatpickr-time input:focus,
+  & .flatpickr-time .flatpickr-am-pm:focus,
+  & .numInputWrapper:hover,
+  & .flatpickr-current-month .flatpickr-monthDropdown-months:hover
+    background: $c-gray-ultra-light
 
-    & .ui-datepicker-prev
-      left: 0
+  & .numInputWrapper span:hover
+    background: $c-gray-extra-light
 
-      @media screen and (max-width: 480px)
-        left: 15px
+  & .flatpickr-current-month
+    font-size: 14px
 
-      & span
-        text-align: left
+  & .flatpickr-current-month .numInputWrapper
+    width: 70px
 
-        &:before
-          content: '\e911'
+  & .flatpickr-current-month input.cur-year,
+  & .flatpickr-current-month .flatpickr-monthDropdown-months
+    height: 25px
+    padding: 0 10px
+    font-family: $f-sans
+    font-weight: 400
+    border: 1px solid $c-gray-extra-light
 
+  & .flatpickr-weekday
+    font-size: 12px
+    font-weight: 600
+    color: $c-gray-ultra-dark
+    user-select: none
 
-    & .ui-datepicker-next
-      right: 0
+  & .flatpickr-day
+    font-size: 14px
+    color: $c-gray-ultra-dark
+    border-radius: 0
+    user-select: none
 
-      @media screen and (max-width: 480px)
-        right: 15px
+  & .flatpickr-day.inRange,
+  & .flatpickr-day.prevMonthDay.inRange,
+  & .flatpickr-day.nextMonthDay.inRange,
+  & .flatpickr-day.today.inRange,
+  & .flatpickr-day.prevMonthDay.today.inRange,
+  & .flatpickr-day.nextMonthDay.today.inRange
+    border-color: $c-turquoise-extra-light
+    background-color: $c-turquoise-extra-light
 
-      & span
-        text-align: right
+  & .flatpickr-day.today
+    background-color: $c-yellow-extra-light
+    border-color: $c-yellow-light
 
-        &:before
-          content: '\e910'
+  & .flatpickr-day:hover,
+  & .flatpickr-day.prevMonthDay:hover,
+  & .flatpickr-day.nextMonthDay:hover,
+  & .flatpickr-day:focus,
+  & .flatpickr-day.prevMonthDay:focus,
+  & .flatpickr-day.nextMonthDay:focus,
+  & .flatpickr-day.today:hover,
+  & .flatpickr-day.today:focus
+    background-color: $c-turquoise-extra-light
+    border-color: $c-turquoise-light
+    color: $c-gray-ultra-dark
 
+  & .flatpickr-day.selected,
+  & .flatpickr-day.startRange,
+  & .flatpickr-day.endRange,
+  & .flatpickr-day.selected.inRange,
+  & .flatpickr-day.startRange.inRange,
+  & .flatpickr-day.endRange.inRange,
+  & .flatpickr-day.selected:focus,
+  & .flatpickr-day.startRange:focus,
+  & .flatpickr-day.endRange:focus,
+  & .flatpickr-day.selected:hover,
+  & .flatpickr-day.startRange:hover,
+  & .flatpickr-day.endRange:hover,
+  & .flatpickr-day.selected.prevMonthDay,
+  & .flatpickr-day.startRange.prevMonthDay,
+  & .flatpickr-day.endRange.prevMonthDay,
+  & .flatpickr-day.selected.nextMonthDay,
+  & .flatpickr-day.startRange.nextMonthDay,
+  & .flatpickr-day.endRange.nextMonthDay,
+  & .flatpickr-day.selected.inRange:hover,
+  & .flatpickr-day.selected.prevMonthDay.inRange:hover,
+  & .flatpickr-day.selected.nextMonthDay.inRange:hover
+    background-color: $c-turquoise-medium
+    border-color: $c-turquoise-medium
+    color: $c-white
 
-    & .ui-datepicker-next-hover,
-    & .ui-datepicker-prev-hover
-      background: none
-      background-color: transparent
-      border: none
+  & .flatpickr-day.inRange:hover
+    background-color: $c-turquoise-extra-light
+    border-color: $c-turquoise-extra-light
+    color: $c-gray-ultra-dark
 
+  & .flatpickr-day.prevMonthDay.inRange:hover,
+  & .flatpickr-day.nextMonthDay.inRange:hover
+    color: $c-gray-light
+    cursor: pointer
 
-    & .ui-datepicker-title
-      font-family: $f-sans
-      font-size: 14px
-      color: $c-gray-ultra-dark
-      text-align: center
-      font-weight: 400
+  & .flatpickr-day.selected.startRange,
+  & .flatpickr-day.startRange.startRange,
+  & .flatpickr-day.endRange.startRange,
+  & .flatpickr-day.selected.endRange,
+  & .flatpickr-day.startRange.endRange,
+  & .flatpickr-day.endRange.endRange,
+  & .flatpickr-day.selected.startRange.endRange,
+  & .flatpickr-day.startRange.startRange.endRange,
+  & .flatpickr-day.endRange.startRange.endRange
+    border-radius: 0
 
-    & select.ui-datepicker-month,
-    & select.ui-datepicker-year
-      height: 30px
-      width: 50%
-      padding: 0 25px 0 10px
-      font-family: $f-sans
-      font-size: 14px
-      color: $c-gray-ultra-dark
-      font-weight: 400
-      line-height: 1.5
-      -webkit-appearance: none
-      -moz-appearance: none
-      border: 1px solid $c-gray-light
-      background-size: 9px 6px
-      background-position: right -1rem center
-      background-origin: content-box
-      background-repeat: no-repeat
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%28138, 138, 138%29'></polygon></svg>")
+  & .flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)),
+  & .flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)),
+  & .flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1))
+    box-shadow: -10px 0 0 $c-turquoise-medium
 
-      @media screen and (min-width: 0\0)
-        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAYAAACbU/80AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIpJREFUeNrEkckNgDAMBBfRkEt0ObRBBdsGXUDgmQfK4XhH2m8czQAAy27R3tsw4Qfe2x8uOO6oYLb6GlOor3GF+swURAOmUJ+RwtEJs9WvTGEYxBXqI1MQAZhCfUQKRzDMVj+TwrAIV6jvSUEkYAr1LSkcyTBb/V+KYfX7xAeusq3sLDtGH3kEGACPWIflNZfhRQAAAABJRU5ErkJggg==")
+  & .flatpickr-day.inRange
+    box-shadow: -5px 0 0 $c-turquoise-extra-light, 5px 0 0 $c-turquoise-extra-light
 
-      &:focus
-        box-shadow: 0 0 3px -1px $c-gray-medium
+  & .flatpickr-day.selected.startRange.inRange
+    box-shadow: 5px 0 0 $c-turquoise-extra-light
 
-      & option
-        font-family: $f-sans
-        color: $c-gray-ultra-dark
+  & .flatpickr-day.selected.endRange.inRange
+    box-shadow: -5px 0 0 $c-turquoise-extra-light
 
-    & select.ui-datepicker-year
-      margin-left: -1px
+  & .flatpickr-day.flatpickr-disabled,
+  & .flatpickr-day.flatpickr-disabled:hover,
+  & .flatpickr-day.prevMonthDay,
+  & .flatpickr-day.nextMonthDay,
+  & .flatpickr-day.notAllowed,
+  & .flatpickr-day.notAllowed.prevMonthDay,
+  & .flatpickr-day.notAllowed.nextMonthDay
+    color: $c-gray-light
+    background: transparent
+    border-color: transparent
+    cursor: default
 
-    & select.ui-datepicker-month::-ms-expand,
-    & select.ui-datepicker-year::-ms-expand
-      display: none
+  & .flatpickr-day.flatpickr-disabled,
+  & .flatpickr-day.flatpickr-disabled:hover
+    cursor: not-allowed
+    color: $c-gray-light
 
+  & .flatpickr-day.prevMonthDay,
+  & .flatpickr-day.nextMonthDay,
+    cursor: pointer
 
-    & .ui-datepicker-calendar
-      position: relative
-      z-index: 1
-      width: 100%
-      margin: 0
-      border-spacing: 0
-      border: none
-
-      & thead,
-      & tbody,
-      & tfoot
-        border: none
-        background-color: transparent
-
-      & tr
-        background-color: transparent
-
-      & th
-        padding: 0
-        font-family: $f-sans
-        font-size: 14px
-        color: $c-gray-ultra-dark
-        text-align: center
-        font-weight: 600
-        border-top: none
-        background-color: transparent
-
-        & span
-          display: block
-          padding: 20px 0
-
-          @media screen and (max-width: 480px)
-            padding: 20px 0 10px
-
-      & td
-        padding: 0
-        background-color: transparent
-
-        & a
-          font-family: $f-sans
-          padding: 10px
-          background: none
-          background-color: transparent
-          border: none
-          text-align: center
-          font-size: 14px
-          color: $c-gray-ultra-dark
-
-          @media screen and (max-width: 480px)
-            padding: 10px
-
-          &.ui-state-active
-            background-color: $c-turquoise-medium
-            color: $c-white
-
-          &.ui-state-hover
-            background-color: lighten($c-turquoise-medium, 5%)
-            color: $c-white
-
-          &.ui-state-highlight.ui-state-hover
-            background-color: lighten($c-turquoise-medium, 5%)
-
-          &.ui-state-active.ui-state-hover
-            background-color: $c-turquoise-medium
-
-        &.ui-datepicker-other-month
-          background-color: transparent
-
-          & a
-            opacity: 1
-            color: $c-gray-medium
-
-            &.ui-state-active,
-            &.ui-state-hover
-              color: $c-white
-
-        &.ui-datepicker-current-day
-          & a.ui-state-default,
-          & a.ui-state-hover,
-          & a.ui-state-active
-            background-color: $c-turquoise-medium
-            color: $c-white
+  & .flatpickr-day.week.selected
+    border-radius: 0
+    box-shadow: -5px 0 0 $c-turquoise-medium, 5px 0 0 $c-turquoise-medium

@@ -19,6 +19,9 @@ $block: ".cashup-dropdown"
   display: block
   width: 100%
 
+  // $Dropdown STATE: opened
+  &.is-opened
+
   // $Dropdown MOD: role user
   &_role_user
 
@@ -26,10 +29,7 @@ $block: ".cashup-dropdown"
   &_role_site
 
   // $Dropdown MOD: role date
-  &_date
-
-  // $Dropdown STATE: opened
-  &.is-opened
+  &_role_date
 
 
   // $Dropdown control
@@ -113,6 +113,11 @@ $block: ".cashup-dropdown"
     border: 1px solid $c-gray-extra-light
     background-color: $c-white
     box-shadow: 0 2px 8px -2px $c-shadow-primary
+
+    #{$block}_role_date &
+      width: 330px
+      padding: 10px 0 15px
+
 
     &:before
       content: ''
