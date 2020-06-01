@@ -1,0 +1,217 @@
+////////////////////////////////////////
+// $Slideshow
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".cashup-slideshow"
+
+#{$block}
+  position: relative
+  display: block
+  width: 100%
+
+  // $Slideshow MOD: role tills lifts
+  &_role_till-lifts
+
+
+  // $Slideshow controls
+  &__controls
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    margin-bottom: 10px
+
+
+  // $Slideshow controls group
+  &__controls-group
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    padding: 0 20px
+
+
+  // $Slideshow control
+  &__control
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+
+
+  // $Slideshow title
+  &__title
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+    text-align: center
+
+
+  // $Slideshow pagination
+  &__pagination
+    display: block
+    width: 100%
+
+
+  // $Slideshow container
+  &__container
+    display: block
+    width: 100%
+
+
+  // Swiper styles overrides
+  @at-root
+    #{$block}-controls
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
+    .swiper-pagination.swiper-pagination-bullets
+      #{$block} &
+        position: static
+        transform: none
+        line-height: 0
+
+      #{$block}-controls &
+        position: static
+        transform: none
+        margin: 0 20px
+        text-align: left
+
+    .swiper-pagination-bullet
+      #{$block} &
+        width: 20px
+        height: 10px
+        margin-bottom: 5px
+        padding: 7px 0 0
+        border-radius: 0
+        border-bottom: 3px solid $c-gray-light
+        background-color: transparent
+        opacity: 1
+
+      #{$block}-controls &
+        width: 10px
+        height: 10px
+        background-color: $c-gray-extra-light
+        opacity: 1
+
+      &:not(:last-child)
+        #{$block} &
+          margin-right: 15px
+
+        #{$block}-controls &
+          margin-right: 5px
+
+      &:focus
+        #{$block} &,
+        #{$block}-controls &
+          outline: none
+
+    .swiper-pagination-bullet-active
+      #{$block} &
+        border-color: $c-gray-dark
+        background-color: transparent
+
+      #{$block}-controls &
+        background-color: $c-gray-medium
+
+    .swiper-buttons
+      #{$block}-controls &
+        flex-grow: 0
+        flex-shrink: 0
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: center
+
+    .swiper-button-prev,
+    .swiper-button-next
+      #{$block} &,
+      #{$block}-controls &
+        position: static
+        top: auto
+        left: auto
+        right: auto
+        margin-top: auto
+        display: inline-block
+        vertical-align: middle
+        margin: 0
+        padding: 0
+        font-size: 0
+        color: transparent
+        opacity: 1
+        border-radius: 0
+        background-color: transparent
+        background: none
+        box-shadow: none
+        text-align: center
+        opacity: 1
+
+      #{$block} &
+        width: 15px
+        height: 20px
+
+      #{$block}-controls &
+        flex-shrink: 0
+        flex-grow: 0
+        width: 30px
+        height: 30px
+        border: 1px solid $c-gray-extra-light
+
+      &:after
+        content: ''
+        display: inline-block
+        font-family: icons
+        font-weight: 400
+        color: $c-gray-dark
+        vertical-align: middle
+
+        #{$block} &
+          font-size: 30px
+          line-height: 20px
+
+        #{$block}-controls &
+          line-height: 28px
+
+
+      &:not(:last-child)
+        #{$block}-controls &
+          margin-right: 10px
+
+      &:focus
+        #{$block} &,
+        #{$block}-controls &
+          outline: none
+
+    .swiper-button-prev
+      #{$block} &,
+      #{$block}-controls &
+
+      &:after
+        content: '\e911'
+
+    .swiper-button-next
+      #{$block} &,
+      #{$block}-controls &
+
+      &:after
+        content: '\e910'
+
+    .swiper-button-disabled
+      &:after
+        color: $c-gray-extra-light
+
+    .swiper-slide
+      position: relative

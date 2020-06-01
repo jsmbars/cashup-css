@@ -11,7 +11,7 @@
 $checkbox-sizes: ("xxs" 10px 4px, "xs" 15px 6px, "s" 20px 8px, "m" 25px 10px, "l" 30px 12px, "xl" 35px 14px, "xxl" 40px 16px)
 
 // $checkbox-highlight-name, $checkbox-highlight-background, $checkbox-highlight-border
-$checkbox-highlights: ("pink-extra-light" $c-pink-extra-light  $c-pink-light, "red-extra-light" $c-red-extra-light $c-red-light, "orange-extra-light" $c-orange-extra-light $c-orange-light, "yellow-extra-light" $c-yellow-extra-light $c-yellow-light, "green-extra-light" $c-green-extra-light $c-green-light, "turquoise-extra-light" $c-turquoise-extra-light $c-turquoise-light, "blue-extra-light" $c-blue-extra-light $c-blue-light, "purple-extra-light" $c-purple-extra-light $c-purple-light, "gray-ultra-light" $c-gray-ultra-light $c-gray-extra-light)
+$checkbox-highlights: ("pink-extra-light" $c-pink-extra-light $c-pink-light, "red-extra-light" $c-red-extra-light $c-red-light, "orange-extra-light" $c-orange-extra-light $c-orange-light, "yellow-extra-light" $c-yellow-extra-light $c-yellow-light, "green-extra-light" $c-green-extra-light $c-green-light, "turquoise-extra-light" $c-turquoise-extra-light $c-turquoise-light, "blue-extra-light" $c-blue-extra-light $c-blue-light, "purple-extra-light" $c-purple-extra-light $c-purple-light, "gray-extra-light" $c-gray-extra-light $c-gray-light)
 
 
 //////////////////////////////////////// Block mixins and functions
@@ -71,8 +71,8 @@ $block: ".cashup-form-checkbox"
   // $Form checkbox MOD: highlight purple extra light
   &_highlight_purple-extra-light
 
-  // $Form checkbox MOD: highlight gray ultra light
-  &_highlight_gray-ultra-light
+  // $Form checkbox MOD: highlight gray extra light
+  &_highlight_gray-extra-light
 
 
   // $Form checkbox label
@@ -126,7 +126,7 @@ $block: ".cashup-form-checkbox"
       width: 25px
       height: 25px
       background-color: $c-white
-      border: 1px solid $c-gray-extra-light
+      border: 1px solid $c-gray-light
       border-radius: 2px
 
       @each $checkbox-size-name, $checkbox-indicator-size in $checkbox-sizes
@@ -180,11 +180,10 @@ $block: ".cashup-form-checkbox"
         border-color: $c-red-medium
 
       #{$block}__input input:disabled ~ &
-        background-color: $c-gray-ultra-light
-        border-color: $c-gray-extra-light
+        background-color: $c-gray-extra-light
 
       #{$block}.is-error #{$block}__input input:disabled ~ &
-        background-color: $c-gray-ultra-light
+        background-color: $c-gray-extra-light
         border-color: $c-red-medium
 
     &:after

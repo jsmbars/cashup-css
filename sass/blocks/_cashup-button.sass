@@ -140,14 +140,14 @@ $block: ".cashup-button"
   &.is-disabled,
   &:disabled,
   &[disabled],
-    background-color: $c-gray-ultra-light !important
+    background-color: $c-gray-extra-light !important
     border-color: $c-gray-extra-light !important
     color: $c-gray-medium !important
     cursor: not-allowed
 
     &:hover,
     &:focus
-      background-color: $c-gray-ultra-light !important
+      background-color: $c-gray-extra-light !important
       border-color: $c-gray-extra-light !important
       color: $c-gray-medium !important
 
@@ -169,8 +169,13 @@ $block: ".cashup-button"
 
   // $Button MOD: size full
   &_size_full
-    display: block
+    display: flex
     width: 100%
+
+  // $Button MOD: size half
+  &_size_half
+    display: flex
+    width: 50%
 
   // Size modifiers
   @each $button-size-name, $button-height, $button-padding in $button-sizes

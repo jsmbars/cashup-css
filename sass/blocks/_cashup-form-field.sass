@@ -11,7 +11,10 @@
 $field-sizes: ("xxs" 25px, "xs" 30px, "s" 35px, "m" 40px, "l" 45px, "xl" 50px, "xxl" 55px)
 
 // $field-highlight-name, $field-highlight-background, $field-highlight-border
-$field-highlights: ("pink-extra-light" $c-pink-extra-light  $c-pink-light, "red-extra-light" $c-red-extra-light $c-red-light, "orange-extra-light" $c-orange-extra-light $c-orange-light, "yellow-extra-light" $c-yellow-extra-light $c-yellow-light, "green-extra-light" $c-green-extra-light $c-green-light, "turquoise-extra-light" $c-turquoise-extra-light $c-turquoise-light, "blue-extra-light" $c-blue-extra-light $c-blue-light, "purple-extra-light" $c-purple-extra-light $c-purple-light, "gray-ultra-light" $c-gray-ultra-light $c-gray-extra-light)
+$field-highlights: ("pink-extra-light" $c-pink-extra-light $c-pink-light, "red-extra-light" $c-red-extra-light $c-red-light, "orange-extra-light" $c-orange-extra-light $c-orange-light, "yellow-extra-light" $c-yellow-extra-light $c-yellow-light, "green-extra-light" $c-green-extra-light $c-green-light, "turquoise-extra-light" $c-turquoise-extra-light $c-turquoise-light, "blue-extra-light" $c-blue-extra-light $c-blue-light, "purple-extra-light" $c-purple-extra-light $c-purple-light, "gray-extra-light" $c-gray-extra-light $c-gray-light)
+
+// $field-color-name, $field-color-value
+$field-colors: ("pink-medium" $c-pink-medium, "red-medium" $c-red-medium, "orange-medium" $c-orange-medium, "yellow-medium" $c-yellow-medium, "green-medium" $c-green-medium, "turquoise-medium" $c-turquoise-medium, "blue-medium" $c-blue-medium, "purple-medium" $c-purple-medium, "gray-medium" $c-gray-medium)
 
 
 //////////////////////////////////////// Block mixins and functions
@@ -73,8 +76,57 @@ $block: ".cashup-form-field"
   // $Form field MOD: highlight purple extra light
   &_highlight_purple-extra-light
 
-  // $Form field MOD: highlight gray ultra light
-  &_highlight_gray-ultra-light
+  // $Form field MOD: highlight gray extra light
+  &_highlight_gray-extra-light
+
+  // $Form field MOD: color pink medium
+  &_color_pink-medium
+
+  // $Form field MOD: color red medium
+  &_color_red-medium
+
+  // $Form field MOD: color orange medium
+  &_color_orange-medium
+
+  // $Form field MOD: color yellow medium
+  &_color_yellow-medium
+
+  // $Form field MOD: color green medium
+  &_color_green-medium
+
+  // $Form field MOD: color turquoise medium
+  &_color_turquoise-medium
+
+  // $Form field MOD: color blue medium
+  &_color_blue-medium
+
+  // $Form field MOD: color purple medium
+  &_color_purple-medium
+
+  // $Form field MOD: color gray medium
+  &_color_gray-medium
+
+  // $Form field MOD: adjust till panel
+  &_adjust_till
+
+  // $Form field MOD: adjust pdq slip calc
+  &_adjust_pdq-slip-calc
+
+
+  // $Form field group
+  &__group
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+    // $Form field group MOD: justify start
+    &_justify_start
+      justify-content: flex-start
+
+    // $Form field group MOD: justify end
+    &_justify_end
+      justify-content: flex-end
 
 
   // $Form field label
@@ -89,6 +141,35 @@ $block: ".cashup-form-field"
     line-height: 1
     text-align: left
 
+    #{$block}__group &
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
+      margin-bottom: 0
+
+    #{$block}_adjust_till #{$block}__group &,
+    #{$block}_adjust_till-lift #{$block}__group &
+      flex-grow: 1
+
+    #{$block}_adjust_pdq-slip-calc #{$block}__group &
+      width: 100px
+
+    &:first-child
+      #{$block}__group &
+        padding-right: 10px
+
+      #{$block}_adjust_till #{$block}__group &,
+      #{$block}_adjust_till-lift #{$block}__group &
+        padding-right: 5px
+
+    &:last-child
+      #{$block}__group &
+        padding-left: 10px
+
+      #{$block}_adjust_till #{$block}__group &,
+      #{$block}_adjust_till-lift #{$block}__group &
+        padding-left: 5px
+
 
   // $Form field label text
   &__label-text
@@ -97,6 +178,20 @@ $block: ".cashup-form-field"
   // $Form field input
   &__input
     position: relative
+
+    #{$block}__group &
+      flex-grow: 1
+      flex-shrink: 1
+
+    #{$block}_adjust_till #{$block}__group &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 150px
+
+    #{$block}_adjust_till-lift #{$block}__group &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 135px
 
     & input
       display: block
@@ -110,18 +205,20 @@ $block: ".cashup-form-field"
       line-height: 1.25
       border-radius: 2px
       background-color: $c-white
-      border: 1px solid $c-gray-extra-light
+      border: 1px solid $c-gray-light
 
       @each $field-size-name, $field-height in $field-sizes
         #{$block}_size_#{$field-size-name} &
           height: $field-height
-          padding-top: floor(($field-height - 20px) / 2)
-          padding-bottom: floor(($field-height - 20px) / 2)
 
       @each $field-highlight-name, $field-highlight-background, $field-highlight-border in $field-highlights
         #{$block}_highlight_#{$field-highlight-name} &
           background-color: $field-highlight-background
           border-color: $field-highlight-border
+
+      @each $field-color-name, $field-color-value in $field-colors
+        #{$block}_color_#{$field-color-name} &
+          color: $field-color-value
 
       #{$block}.is-error &
         border-color: $c-red-medium
@@ -135,11 +232,11 @@ $block: ".cashup-form-field"
         box-shadow: 0 0 3px -1px $c-shadow-primary
 
       &:disabled
-        background-color: $c-gray-ultra-light
+        background-color: $c-gray-extra-light
         cursor: not-allowed
 
       &:not([type="date"]):read-only
-        background-color: $c-gray-ultra-light
+        background-color: $c-gray-extra-light
 
       &::-webkit-input-placeholder
         color: $c-gray-medium !important
@@ -200,8 +297,22 @@ $block: ".cashup-form-field"
     line-height: 1.25
     border-radius: 2px
     background-color: $c-white
-    border: 1px solid $c-gray-extra-light
+    border: 1px solid $c-gray-light
     cursor: default
+
+    #{$block}__group &
+      flex-grow: 1
+      flex-shrink: 1
+
+    #{$block}_adjust_till #{$block}__group &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 150px
+
+    #{$block}_adjust_till-lift #{$block}__group &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 135px
 
     @each $field-size-name, $field-height in $field-sizes
       #{$block}_size_#{$field-size-name} &
@@ -213,6 +324,10 @@ $block: ".cashup-form-field"
       #{$block}_highlight_#{$field-highlight-name} &
         background-color: $field-highlight-background
         border-color: $field-highlight-border
+
+    @each $field-color-name, $field-color-value in $field-colors
+      #{$block}_color_#{$field-color-name} &
+        color: $field-color-value
 
     #{$block}.is-error &
       border-color: $c-red-medium
@@ -238,6 +353,20 @@ $block: ".cashup-form-field"
     line-height: 1.25
     background-color: transparent
     cursor: default
+
+    #{$block}__group &
+      flex-grow: 1
+      flex-shrink: 1
+
+    #{$block}_adjust_till #{$block}__group &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 150px
+
+    #{$block}_adjust_till-lift #{$block}__group &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 135px
 
     #{$block}.is-error &
       color: $c-red-medium
