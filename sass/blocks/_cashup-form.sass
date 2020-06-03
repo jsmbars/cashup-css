@@ -10,7 +10,7 @@
 // $form-space-name, $form-space-size
 $form-spaces: ("xxs" 10px, "xs" 15px, "s" 15px, "m" 20px, "l" 25px, "xl" 25px, "xxl" 30px)
 
-// $form-highlight-name, $form-highlight-background
+// $form-highlight-name, $form-highlight-value
 $form-highlights: ("pink-extra-light" $c-pink-extra-light, "red-extra-light" $c-red-extra-light, "orange-extra-light" $c-orange-extra-light, "yellow-extra-light" $c-yellow-extra-light, "green-extra-light" $c-green-extra-light, "turquoise-extra-light" $c-turquoise-extra-light, "blue-extra-light" $c-blue-extra-light, "purple-extra-light" $c-purple-extra-light, "gray-extra-light" $c-gray-extra-light)
 
 // $form-color-name, $form-color-value
@@ -35,12 +35,14 @@ $block: ".cashup-form"
   &__delimiter
     display: block
     width: 100%
-    margin-bottom: 20px
     border-bottom: 1px solid $c-gray-extra-light
 
-    @each $form-space-name, $form-space-size in $form-spaces
-      #{$block}_space_#{$form-space-name} &
-        margin-bottom: $form-space-size
+    &:not(:last-child)
+      margin-bottom: 20px
+
+      @each $form-space-name, $form-space-size in $form-spaces
+        #{$block}_space_#{$form-space-name} &
+          margin-bottom: $form-space-size
 
 
   // $Form board
@@ -270,9 +272,9 @@ $block: ".cashup-form"
       #{$block}_space_#{$form-space-name} &
         padding: $form-space-size
 
-    @each $form-highlight-name, $form-highlight-background, $form-highlight-border in $form-highlights
+    @each $form-highlight-name, $form-highlight-value in $form-highlights
       &_highlight_#{$form-highlight-name}
-        background-color: $form-highlight-background
+        background-color: $form-highlight-value
 
 
   // $Form actions

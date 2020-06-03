@@ -27,8 +27,10 @@ $block: ".cashup-panel"
     margin-bottom: 30px
 
   // $Panel MOD: role till
+  // $Panel MOD: role pdq
   &_role_tills,
-  &_role_till
+  &_role_till,
+  &_role_pdq
     flex-grow: 0
     flex-shrink: 0
     width: 300px
@@ -37,6 +39,11 @@ $block: ".cashup-panel"
     &:not(:last-child)
       margin-bottom: 0
       margin-right: 20px
+
+  // $Panel MOD: role card till comparison
+  &_role_card-till-comparison
+    width: 300px
+    border-radius: 0
 
 
   // $Panel header
@@ -51,11 +58,17 @@ $block: ".cashup-panel"
     border-bottom: 1px solid $c-gray-extra-light
 
     // $Panel header CONTEXT: $Panel MOD: role till
+    // $Panel header CONTEXT: $Panel MOD: role pdq
     #{$block}_role_tills &,
-    #{$block}_role_till &
-      flex-direction: column
+    #{$block}_role_till &,
+    #{$block}_role_pdq &
       justify-content: center
       padding: 15px
+
+    // $Panel header CONTEXT: $Panel MOD: role card till comparison
+    #{$block}_role_card-till-comparison &
+      justify-content: center
+      padding: 10px 15px 15px
 
 
   // $Panel content
@@ -68,6 +81,10 @@ $block: ".cashup-panel"
     #{$block}_role_till &
       height: 100%
       padding: 0 15px
+
+    // $Panel content CONTEXT: $Panel MOD: role pdq
+    #{$block}_role_pdq &
+      padding: 15px
 
 
   // $Panel content inner
@@ -137,13 +154,17 @@ $block: ".cashup-panel"
   &__title
     font-family: $f-sans
     font-size: 18px
-    line-height: 1.2
+    line-height: 1
     font-weight: 600
     color: $c-gray-ultra-dark
 
     #{$block}_role_tills &,
-    #{$block}_role_till &
+    #{$block}_role_till &,
+    #{$block}_role_pdq &
       width: 100%
       max-width: 100%
       text-align: center
       font-size: 14px
+
+    #{$block}_role_card-till-comparison &
+      font-size: 16px

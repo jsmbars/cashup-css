@@ -7,6 +7,15 @@
 
 //////////////////////////////////////// Block variables
 
+// $table-row-highlight-name, $table-row-highlight-value
+$table-row-highlights: ("pink-extra-light" $c-pink-extra-light, "red-extra-light" $c-red-extra-light, "orange-extra-light" $c-orange-extra-light, "yellow-extra-light" $c-yellow-extra-light, "green-extra-light" $c-green-extra-light, "turquoise-extra-light" $c-turquoise-extra-light, "blue-extra-light" $c-blue-extra-light, "purple-extra-light" $c-purple-extra-light, "gray-extra-light" $c-gray-extra-light)
+
+// $table-cell-highlight-name, $table-cell-highlight-value
+$table-cell-highlights: ("pink-light" $c-pink-light, "red-light" $c-red-light, "orange-light" $c-orange-light, "yellow-light" $c-yellow-light, "green-light" $c-green-light, "turquoise-light" $c-turquoise-light, "blue-light" $c-blue-light, "purple-light" $c-purple-light, "gray-light" $c-gray-light)
+
+// $table-text-color-name, $table-text-color-value
+$table-text-colors: ("pink-medium" $c-pink-medium, "red-medium" $c-red-medium, "orange-medium" $c-orange-medium, "yellow-medium" $c-yellow-medium, "green-medium" $c-green-medium, "turquoise-medium" $c-turquoise-medium, "blue-medium" $c-blue-medium, "purple-medium" $c-purple-medium, "gray-medium" $c-gray-medium)
+
 
 //////////////////////////////////////// Block mixins and functions
 
@@ -29,6 +38,10 @@ $block: ".cashup-table"
   &_role_configuration
     min-width: 1200px
 
+  // $Table MOD: role card-till-comparison
+  &_role_card-till-comparison
+    border: none
+
 
   // $Table row
   &__row
@@ -42,18 +55,22 @@ $block: ".cashup-table"
     #{$block}_type_common &
       display: table-row
 
-    &:last-of-type
-      border-bottom: none
-
     &:not(#{$block}_role_header):nth-child(odd)
       background-color: $c-gray-hyper-light
 
-      #{$block}_role_configuration &
+      #{$block}_role_configuration &,
+      #{$block}_role_card-till-comparison &
         background-color: $c-white
 
     // $Table row MOD: role header
-    &_role_header
+    // $Table row MOD: role footer
+    &_role_header,
+    &_role_footer
       background-color: $c-gray-hyper-light
+
+    @each $table-row-highlight-name, $table-row-highlight-value in $table-row-highlights
+      &_highlight_#{$table-row-highlight-name}
+        background-color: $table-row-highlight-value !important
 
 
   // $Table cell
@@ -70,6 +87,15 @@ $block: ".cashup-table"
     #{$block}__row:last-child &
       border-bottom: none
 
+    #{$block}_role_card-till-comparison &
+      align-items: flex-start
+      min-height: 0
+      padding: 10px 15px
+      border-bottom: none
+
+    #{$block}_role_card-till-comparison #{$block}__row:first-child &
+      padding-top: 15px
+
     #{$block}_type_common &
       height: 50px
       text-align: left
@@ -79,6 +105,9 @@ $block: ".cashup-table"
     &:not(:last-child)
       border-right: 1px solid $c-gray-light
 
+      #{$block}_role_card-till-comparison &
+        border-right: none
+
     // $Table cell first column
     &:nth-child(1)
       #{$block}_role_configuration &
@@ -86,11 +115,21 @@ $block: ".cashup-table"
         min-width: 150px
         max-width: 300px
 
+      #{$block}_role_card-till-comparison &
+        width: calc(100% - 165px)
+        padding-right: 5px
+
     // $Table cell second column
     &:nth-child(2)
       #{$block}_role_configuration &
         width: 38%
         padding-bottom: 5px
+
+      #{$block}_role_card-till-comparison &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 165px
+        padding-left: 5px
 
     // $Table cell third column
     &:nth-child(3)
@@ -120,6 +159,10 @@ $block: ".cashup-table"
         justify-content: center
         text-align: center
 
+    @each $table-cell-highlight-name, $table-cell-highlight-value in $table-cell-highlights
+      &_highlight_#{$table-cell-highlight-name}
+        background-color: $table-cell-highlight-value !important
+
 
   // $Table info
   &__info
@@ -130,6 +173,7 @@ $block: ".cashup-table"
     #{$block}_role_configuration #{$block}__cell:nth-child(2) &,
     #{$block}_role_configuration #{$block}__cell:nth-child(3) &
       padding-right: 10px
+
 
   // $Table service
   &__service
@@ -154,8 +198,12 @@ $block: ".cashup-table"
     color: $c-gray-ultra-dark
 
     #{$block}__cell_role_header &,
-    #{$block}__cell_role_footer &
+    #{$block}__cell_role_footer &,
+    #{$block}_role_card-till-comparison #{$block}__cell:nth-child(2) &
       font-weight: 600
+
+    #{$block}_role_card-till-comparison #{$block}__cell:nth-child(2) &
+      text-align: right
 
     &:not(:last-child)
       margin-bottom: 5px
@@ -163,6 +211,10 @@ $block: ".cashup-table"
     &_adjust_wrap
       word-wrap: break-word
       hyphens: auto
+
+    @each $table-text-color-name, $table-text-color-value in $table-text-colors
+      &_color_#{$table-text-color-name}
+        color: $table-text-color-value
 
 
   // $Table actions
@@ -193,4 +245,3 @@ $block: ".cashup-table"
 
   // $Table label
   &__label
-
