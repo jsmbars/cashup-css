@@ -60,6 +60,9 @@ $block: ".cashup-tabs"
     &:hover
       color: $c-turquoise-medium
 
+    &:focus
+      outline: none
+
     // $Tabs control STATE: active
     &.is-active
       position: relative
@@ -68,6 +71,12 @@ $block: ".cashup-tabs"
       font-weight: 600
       border-left: none
       box-shadow: -4px 0 4px -3px $c-shadow-primary, 4px 0 4px -3px $c-shadow-primary
+
+    &.is-active:first-child
+      box-shadow: 4px 0 4px -3px $c-shadow-primary
+
+    &.is-active:last-child
+      box-shadow: -4px 0 4px -3px $c-shadow-primary
 
     &.is-active + &
       border-left: none

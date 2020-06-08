@@ -349,12 +349,6 @@ $block: ".cashup-form-select"
       color: $c-red-medium
 
 
-  // $Form select third-party component wrap
-  &__component
-    display: block
-    width: 100%
-
-
   // $Form select note
   &__note
     margin-top: 10px
@@ -364,3 +358,112 @@ $block: ".cashup-form-select"
     font-weight: 400
     font-style: italic
     color: $c-gray-ultra-dark
+
+
+  // $Form select third-party component wrap
+  &__component
+    display: block
+    width: 100%
+
+    // Select2 custom styles
+    & .select2-container *:focus
+      outline: none
+
+    & .select2-container .select2-selection--single
+      height: 40px
+
+      @each $select-size-name, $select-height in $select-sizes
+        #{$block}_size_#{$select-size-name} &
+          height: $select-height
+
+    & .select2-container--default .select2-selection--single
+      border-radius: 2px
+      background-color: $c-white
+      border: 1px solid $c-gray-light
+
+      @each $select-highlight-name, $select-highlight-background, $select-highlight-border in $select-highlights
+        #{$block}_highlight_#{$select-highlight-name} &
+          background-color: $select-highlight-background
+          border-color: $select-highlight-border
+
+      #{$block}.is-error &
+        border-color: $c-red-medium
+
+    & .select2-container--default .select2-selection--single .select2-selection__placeholder
+      color: $c-gray-medium
+
+      #{$block}.is-error &
+        color: $c-red-medium
+
+    & .select2-container .select2-selection--single .select2-selection__rendered
+      padding: 0 30px 0 10px
+      font-family: $f-sans
+      font-size: 14px
+      color: $c-gray-ultra-dark
+      font-weight: 400
+
+      @each $select-size-name, $select-height in $select-sizes
+        #{$block}_size_#{$select-size-name} &
+          line-height: $select-height - 2
+
+      #{$block}.is-error &
+        color: $c-red-medium
+
+    & .select2-container--default .select2-selection--single .select2-selection__arrow
+      width: 30px
+      height: auto
+      bottom: 1px
+
+      &:after
+        content: '\e90e'
+        position: absolute
+        top: 50%
+        right: 10px
+        z-index: 10
+        display: block
+        font-family: icons
+        font-size: 20px
+        color: $c-gray-dark
+        line-height: 1
+        transform: translateY(-50%)
+
+      & b
+        display: none
+
+    @at-root
+      .select2-search--dropdown
+        padding: 5px 10px
+
+      .select2-search--dropdown .select2-search__field
+        display: block
+        height: 30px
+        min-height: 30px
+        padding: 0 10px
+        font-family: $f-sans
+        font-size: 14px
+        color: $c-gray-ultra-dark
+        font-weight: 400
+        line-height: 1.25
+        border-radius: 2px
+        background-color: $c-white
+
+        &:focus
+          outline: none
+          box-shadow: 0 0 3px -1px $c-shadow-primary
+
+      .select2-container--default .select2-search--dropdown .select2-search__field
+        border: 1px solid $c-gray-light
+
+      .select2-results__option
+        padding: 5px 10px
+        font-family: $f-sans
+        font-size: 14px
+        color: $c-gray-ultra-dark
+        font-weight: 400
+        line-height: 1.25
+
+      .select2-container--default .select2-results__option[aria-selected="true"]
+        background-color: $c-gray-extra-light
+
+      .select2-container--default .select2-results__option--highlighted[aria-selected]
+        background-color: $c-turquoise-medium
