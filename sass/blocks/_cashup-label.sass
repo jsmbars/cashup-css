@@ -288,13 +288,12 @@ $block: ".cashup-label"
     display: flex
     flex-direction: row
     justify-content: flex-start
-    align-items: center
+    align-items: stretch
     width: 100%
 
     input
       display: block
       width: 150px
-      height: 100%
       padding: 0 8px
       font-family: $f-sans
       font-size: 14px
@@ -400,16 +399,13 @@ $block: ".cashup-label"
     display: flex
     flex-direction: row
     justify-content: center
-    align-items: stretch
+    align-items: center
     padding: 0
 
 
   // $Label action
   &__action
-    display: flex
-    flex-direction: row
-    justify-content: center
-    align-items: center
+    display: block
     width: 36px
     height: 36px
     margin: 0
@@ -419,6 +415,7 @@ $block: ".cashup-label"
     transition: all .3s
     cursor: pointer
     color: $c-gray-dark
+    text-align: center
 
     #{$block}.is-edit &
       color: $c-gray-dark
@@ -439,13 +436,13 @@ $block: ".cashup-label"
 
     &:before
       content: ''
-      display: block
-      margin: 0 auto
+      display: inline-block
       font-family: icons
       font-size: 14px
       line-height: 1
       font-weight: 400
       color: inherit
+      vertical-align: middle
 
       @each $label-size-name, $label-height, $label-padding, $label-text-size, $label-number-size, $label-action-size, $label-spinner-size in $label-sizes
         #{$block}_size_#{$label-size-name} &
