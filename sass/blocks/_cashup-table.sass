@@ -44,8 +44,12 @@ $block: ".cashup-table"
 
   // $Table MOD: role payouts today
   // $Table MOD: role payouts regular
+  // $Table MOD: role extra income today
+  // $Table MOD: role extra income regular
   &_role_payouts-today,
-  &_role_payouts-regular
+  &_role_payouts-regular,
+  &_role_extra-income-today,
+  &_role_extra-income-regular
     border: none
 
 
@@ -58,7 +62,9 @@ $block: ".cashup-table"
     // $Table group MOD: role form
     &_role_form
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         position: sticky
         top: 0
         z-index: 50
@@ -67,7 +73,9 @@ $block: ".cashup-table"
       // Set default position in Edge
       @supports (-ms-ime-align: auto)
         #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &
+        #{$block}_role_payouts-regular &,
+        #{$block}_role_extra-income-today &,
+        #{$block}_role_extra-income-regular &
           position: relative
           z-index: auto
           top: auto
@@ -75,7 +83,9 @@ $block: ".cashup-table"
       // Set default position in IE11
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
         #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &
+        #{$block}_role_payouts-regular &,
+        #{$block}_role_extra-income-today &,
+        #{$block}_role_extra-income-regular &
           position: relative
           z-index: auto
           top: auto
@@ -83,7 +93,9 @@ $block: ".cashup-table"
     // $Table group MOD: role header
     &_role_header
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         position: sticky
         top: 80px
         z-index: 50
@@ -92,7 +104,9 @@ $block: ".cashup-table"
       // Set default position in Edge
       @supports (-ms-ime-align: auto)
         #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &
+        #{$block}_role_payouts-regular &,
+        #{$block}_role_extra-income-today &,
+        #{$block}_role_extra-income-regular &
           position: relative
           z-index: auto
           top: auto
@@ -101,7 +115,9 @@ $block: ".cashup-table"
       // Set default position in IE11
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
         #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &
+        #{$block}_role_payouts-regular &,
+        #{$block}_role_extra-income-today &,
+        #{$block}_role_extra-income-regular &
           position: relative
           z-index: auto
           top: auto
@@ -110,7 +126,9 @@ $block: ".cashup-table"
     // $Table group MOD: role footer
     &_role_footer
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         position: sticky
         bottom: 0
         z-index: 50
@@ -119,7 +137,9 @@ $block: ".cashup-table"
       // Set default position in Edge
       @supports (-ms-ime-align: auto)
         #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &
+        #{$block}_role_payouts-regular &,
+        #{$block}_role_extra-income-today &,
+        #{$block}_role_extra-income-regular &
           position: relative
           z-index: auto
           top: auto
@@ -128,7 +148,9 @@ $block: ".cashup-table"
       // Set default position in IE11
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
         #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &
+        #{$block}_role_payouts-regular &,
+        #{$block}_role_extra-income-today &,
+        #{$block}_role_extra-income-regular &
           position: relative
           z-index: auto
           top: auto
@@ -153,7 +175,9 @@ $block: ".cashup-table"
       #{$block}_role_configuration &,
       #{$block}_role_card-till-comparison &,
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         background-color: $c-white
 
     // $Table row MOD: role header
@@ -204,14 +228,18 @@ $block: ".cashup-table"
 
     &:first-child
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         border-left: 1px solid $c-gray-light
 
     &:last-child
       border-right: none
 
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         border-right: 1px solid $c-gray-light
 
     // $Table cell first column
@@ -226,7 +254,9 @@ $block: ".cashup-table"
         padding-right: 5px
 
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         width: 40%
 
     // $Table cell second column
@@ -242,7 +272,9 @@ $block: ".cashup-table"
         padding-left: 5px
 
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         width: 40%
 
     // $Table cell third column
@@ -252,7 +284,9 @@ $block: ".cashup-table"
         padding-bottom: 5px
 
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         flex-grow: 0
         flex-shrink: 0
         width: 235px
@@ -279,11 +313,15 @@ $block: ".cashup-table"
         text-align: center
 
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         border-top: 1px solid $c-gray-light
 
       #{$block}_role_payouts-today #{$block}__row:last-child &,
-      #{$block}_role_payouts-regular #{$block}__row:last-child &
+      #{$block}_role_payouts-regular #{$block}__row:last-child &,
+      #{$block}_role_extra-income-today #{$block}__row:last-child &,
+      #{$block}_role_extra-income-regular #{$block}__row:last-child &
         border-bottom: 1px solid $c-gray-light
 
       &:nth-child(2),
@@ -294,22 +332,30 @@ $block: ".cashup-table"
 
     &_role_footer
       #{$block}_role_payouts-today #{$block}__row:last-child &,
-      #{$block}_role_payouts-regular #{$block}__row:last-child &
+      #{$block}_role_payouts-regular #{$block}__row:last-child &,
+      #{$block}_role_extra-income-today #{$block}__row:last-child &,
+      #{$block}_role_extra-income-regular #{$block}__row:last-child &
         border-bottom: 1px solid $c-gray-light
 
     &_role_form
       #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &
+      #{$block}_role_payouts-regular &,
+      #{$block}_role_extra-income-today &,
+      #{$block}_role_extra-income-regular &
         border-right: none
 
       &:first-child
         #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &
+        #{$block}_role_payouts-regular &,
+        #{$block}_role_extra-income-today &,
+        #{$block}_role_extra-income-regular &
           border-left: none
 
       &:last-child
         #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &
+        #{$block}_role_payouts-regular &,
+        #{$block}_role_extra-income-today &,
+        #{$block}_role_extra-income-regular &
           border-right: none
 
     @each $table-cell-highlight-name, $table-cell-highlight-value in $table-cell-highlights
@@ -386,7 +432,9 @@ $block: ".cashup-table"
       margin-bottom: 10px
 
     #{$block}_role_payouts-today #{$block}__cell:nth-child(3) &,
-    #{$block}_role_payouts-regular #{$block}__cell:nth-child(3) &
+    #{$block}_role_payouts-regular #{$block}__cell:nth-child(3) &,
+    #{$block}_role_extra-income-today #{$block}__cell:nth-child(3) &,
+    #{$block}_role_extra-income-regular #{$block}__cell:nth-child(3) &
       flex-grow: 1
 
     &:not(:last-child)
@@ -394,8 +442,9 @@ $block: ".cashup-table"
 
     &:only-child
       #{$block}_role_payouts-today #{$block}__cell:nth-child(3) &,
-      #{$block}_role_payouts-regular #{$block}__cell:nth-child(3) &
-        display: block
+      #{$block}_role_payouts-regular #{$block}__cell:nth-child(3) &,
+      #{$block}_role_extra-income-today #{$block}__cell:nth-child(3) &,
+      #{$block}_role_extra-income-regular #{$block}__cell:nth-child(3) &
         width: 100%
 
 
