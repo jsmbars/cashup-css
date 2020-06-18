@@ -239,7 +239,7 @@ $block: ".cashup-form-field"
         background-color: $c-gray-extra-light
         cursor: not-allowed
 
-      &:not([type="date"]):read-only
+      &:read-only
         background-color: $c-gray-extra-light
 
       &::-webkit-input-placeholder
@@ -283,6 +283,43 @@ $block: ".cashup-form-field"
 
         #{$block}.is-error &
           color: $c-red-medium !important
+
+
+  // $Form field input clear
+  &__input-clear
+    position: absolute
+    top: 1px
+    right: 1px
+    bottom: 1px
+    z-index: 10
+    display: block
+    width: 27px
+    margin: 0
+    padding: 0 0 0 5px
+    background-color: $c-white
+    border: none
+    transition: all .3s
+    cursor: pointer
+    color: $c-red-medium
+    text-align: left
+    opacity: .75
+
+    &:before
+      content: unquote("\'\\e908\'")
+      display: inline-block
+      font-family: icons
+      font-size: 12px
+      line-height: 1
+      font-weight: 400
+      color: inherit
+      vertical-align: middle
+
+    &:hover
+      text-decoration: none
+      opacity: 1
+
+    &:focus
+      outline: none
 
 
   // $Form field box
