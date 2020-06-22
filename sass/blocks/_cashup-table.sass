@@ -46,6 +46,7 @@ $block: ".cashup-table"
   // $Table MOD: role payouts regular
   // $Table MOD: role extra income today
   // $Table MOD: role extra income regular
+  // $Table MOD: role wages
   &_role_payouts-today,
   &_role_payouts-regular,
   &_role_extra-income-today,
@@ -53,7 +54,8 @@ $block: ".cashup-table"
   &_role_security-djs-pr,
   &_role_security-list,
   &_role_djs-list,
-  &_role_pr-list
+  &_role_pr-list,
+  &_role_wages
     border: none
 
 
@@ -72,7 +74,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         position: sticky
         top: 0
         z-index: 60
@@ -87,7 +90,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           position: relative
           z-index: auto
           top: auto
@@ -101,7 +105,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           position: relative
           z-index: auto
           top: auto
@@ -115,7 +120,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         position: sticky
         top: 80px
         z-index: 50
@@ -130,7 +136,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           position: relative
           z-index: auto
           top: auto
@@ -145,7 +152,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           position: relative
           z-index: auto
           top: auto
@@ -160,7 +168,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         position: sticky
         bottom: 0
         z-index: 50
@@ -175,7 +184,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           position: relative
           z-index: auto
           top: auto
@@ -190,7 +200,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           position: relative
           z-index: auto
           top: auto
@@ -221,7 +232,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         background-color: $c-white
 
     // $Table row MOD: role header
@@ -262,7 +274,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         border-top: 1px solid $c-gray-light
 
     #{$block}__row:last-child &
@@ -275,7 +288,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         border-bottom: 1px solid $c-gray-light
 
     #{$block}_role_card-till-comparison &
@@ -292,7 +306,8 @@ $block: ".cashup-table"
       border-bottom: 1px solid $c-gray-light
 
     @media screen and (max-width: 1600px)
-      #{$block}_role_security-djs-pr &
+      #{$block}_role_security-djs-pr &,
+      #{$block}_role_wages &
         padding-left: 5px
         padding-right: 5px
 
@@ -304,7 +319,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         border-left: 1px solid $c-gray-light
 
     &:last-child
@@ -317,7 +333,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         border-right: 1px solid $c-gray-light
 
     // $Table cell first column
@@ -349,6 +366,9 @@ $block: ".cashup-table"
       #{$block}_role_pr-list &
         width: 30%
 
+      #{$block}_role_wages &
+        width: 16%
+
     // $Table cell second column
     &:nth-child(2)
       #{$block}_role_configuration &
@@ -379,6 +399,9 @@ $block: ".cashup-table"
       #{$block}_role_pr-list &
         width: 25%
 
+      #{$block}_role_wages &
+        width: 12%
+
     // $Table cell third column
     &:nth-child(3)
       #{$block}_role_configuration &
@@ -403,6 +426,9 @@ $block: ".cashup-table"
       #{$block}_role_pr-list &
         width: 25%
 
+      #{$block}_role_wages &
+        width: 16%
+
     // $Table cell fourth column
     &:nth-child(4)
       #{$block}_role_configuration &
@@ -421,6 +447,9 @@ $block: ".cashup-table"
         flex-shrink: 0
         width: 235px
 
+      #{$block}_role_wages &
+        width: 16%
+
     // $Table cell fifth column
     &:nth-child(5)
       #{$block}_role_security-djs-pr &
@@ -431,15 +460,32 @@ $block: ".cashup-table"
         flex-shrink: 0
         width: 235px
 
+      #{$block}_role_wages &
+        width: 10%
+        justify-content: center
+
     // $Table cell sixth column
     &:nth-child(6)
       #{$block}_role_security-djs-pr &
         width: 10%
 
+      #{$block}_role_wages &
+        width: 10%
+        justify-content: center
+
     // $Table cell seventh column
     &:nth-child(7)
       #{$block}_role_security-djs-pr &
         width: 10%
+
+      #{$block}_role_wages &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 235px
+
+      @media screen and (max-width: 1600px)
+        #{$block}_role_wages &
+          width: 225px
 
     // $Table cell eighth column
     &:nth-child(8)
@@ -477,6 +523,12 @@ $block: ".cashup-table"
           padding-top: 15px
           padding-bottom: 15px
 
+
+      &:nth-child(5),
+      &:nth-child(6)
+        #{$block}_role_wages &
+          text-align: center
+
     &_role_form
       #{$block}_role_payouts-today &,
       #{$block}_role_payouts-regular &,
@@ -485,7 +537,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr &,
       #{$block}_role_security-list &,
       #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &
+      #{$block}_role_pr-list &,
+      #{$block}_role_wages &
         border-right: none
 
       #{$block}__row:first-child &
@@ -496,7 +549,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           border-top: none
 
       #{$block}__row:last-child &
@@ -507,7 +561,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           border-bottom: none
 
       &:first-child
@@ -518,7 +573,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           border-left: none
 
       &:last-child
@@ -529,7 +585,8 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &,
         #{$block}_role_security-list &,
         #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &
+        #{$block}_role_pr-list &,
+        #{$block}_role_wages &
           border-right: none
 
     @each $table-cell-highlight-name, $table-cell-highlight-value in $table-cell-highlights
@@ -546,6 +603,10 @@ $block: ".cashup-table"
     #{$block}_role_configuration #{$block}__cell:nth-child(2) &,
     #{$block}_role_configuration #{$block}__cell:nth-child(3) &
       padding-right: 10px
+
+    #{$block}_role_wages #{$block}__cell:nth-child(5) &,
+    #{$block}_role_wages #{$block}__cell:nth-child(6) &
+      text-align: center
 
 
   // $Table service
@@ -577,6 +638,18 @@ $block: ".cashup-table"
 
     #{$block}_role_card-till-comparison #{$block}__cell:nth-child(2) &
       text-align: right
+
+    #{$block}_role_payouts-today > &:last-child,
+    #{$block}_role_payouts-regular > &:last-child,
+    #{$block}_role_extra-income-today > &:last-child,
+    #{$block}_role_extra-income-regular > &:last-child,
+    #{$block}_role_security-djs-pr > &:last-child,
+    #{$block}_role_security-list > &:last-child,
+    #{$block}_role_djs-list > &:last-child,
+    #{$block}_role_pr-list > &:last-child,
+    #{$block}_role_wages > &:last-child
+      font-size: 16px
+      color: $c-gray-dark
 
     &:not(:last-child)
       margin-bottom: 5px
@@ -612,7 +685,8 @@ $block: ".cashup-table"
     #{$block}_role_security-djs-pr #{$block}__cell:nth-child(9) &,
     #{$block}_role_security-list #{$block}__cell:nth-child(3) &,
     #{$block}_role_djs-list #{$block}__cell:nth-child(5) &,
-    #{$block}_role_pr-list #{$block}__cell:nth-child(4) &
+    #{$block}_role_pr-list #{$block}__cell:nth-child(4) &,
+    #{$block}_role_wages #{$block}__cell:nth-child(7) &
       flex-grow: 1
 
     &:not(:last-child)
@@ -626,7 +700,8 @@ $block: ".cashup-table"
       #{$block}_role_security-djs-pr #{$block}__cell:nth-child(9) &,
       #{$block}_role_security-list #{$block}__cell:nth-child(3) &,
       #{$block}_role_djs-list #{$block}__cell:nth-child(5) &,
-      #{$block}_role_pr-list #{$block}__cell:nth-child(4) &
+      #{$block}_role_pr-list #{$block}__cell:nth-child(4) &,
+      #{$block}_role_wages #{$block}__cell:nth-child(7) &
         width: 100%
 
 
