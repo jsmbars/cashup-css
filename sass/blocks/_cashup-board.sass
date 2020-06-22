@@ -30,6 +30,46 @@ $block: ".cashup-board"
   // $Board MOD: role wages
   &_role_wages
 
+  // $Board MOD: role wages admin
+  &_role_wages-admin
+
+
+  // $Board filter
+  &__filter
+    display: block
+    width: 100%
+    padding: 20px
+    background-color: $c-gray-hyper-light
+
+    #{$block}_role_wages-admin &
+      position: sticky
+      top: 0
+      z-index: 60
+
+    // Set default position in Edge
+    @supports (-ms-ime-align: auto)
+      #{$block}_role_wages-admin &
+        position: static
+        z-index: auto
+        top: auto
+
+    // Set default position in IE11
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+      #{$block}_role_wages-admin &
+        position: static
+        z-index: auto
+        top: auto
+
+
+  // $Board inner
+  &__inner
+    display: block
+    width: 100%
+    padding: 20px
+
+    #{$block}_role_wages-admin #{$block}__filter + &
+      padding-top: 0
+
 
   // $Board inner
   &__inner
@@ -150,5 +190,5 @@ $block: ".cashup-board"
     width: 100%
     font-family: $f-sans
     font-size: 16px
-    line-height: 1.25
+    line-height: 1
     color: $c-gray-dark
