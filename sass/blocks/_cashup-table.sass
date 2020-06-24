@@ -53,7 +53,8 @@ $block: ".cashup-table"
   &_role_djs-list,
   &_role_pr-list,
   &_role_wages,
-  &_role_wages-admin
+  &_role_wages-admin,
+  &_role_deposits
     border: none
 
 
@@ -121,13 +122,15 @@ $block: ".cashup-table"
       #{$block}_role_djs-list &,
       #{$block}_role_pr-list &,
       #{$block}_role_wages &,
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         position: sticky
         top: 80px
         z-index: 50
         box-shadow: 0 1px 0 0 $c-gray-light
 
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         padding-top: 20px
 
       // Set default position in Edge
@@ -141,7 +144,8 @@ $block: ".cashup-table"
         #{$block}_role_djs-list &,
         #{$block}_role_pr-list &,
         #{$block}_role_wages &,
-        #{$block}_role_wages-admin &
+        #{$block}_role_wages-admin &,
+        #{$block}_role_deposits &
           position: relative
           z-index: auto
           top: auto
@@ -158,7 +162,8 @@ $block: ".cashup-table"
         #{$block}_role_djs-list &,
         #{$block}_role_pr-list &,
         #{$block}_role_wages &,
-        #{$block}_role_wages-admin &
+        #{$block}_role_wages-admin &,
+        #{$block}_role_deposits &
           position: relative
           z-index: auto
           top: auto
@@ -242,7 +247,8 @@ $block: ".cashup-table"
       #{$block}_role_djs-list &,
       #{$block}_role_pr-list &,
       #{$block}_role_wages &,
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         background-color: $c-white
 
     // $Table row MOD: role header
@@ -285,7 +291,8 @@ $block: ".cashup-table"
       #{$block}_role_djs-list &,
       #{$block}_role_pr-list &,
       #{$block}_role_wages &,
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         border-top: 1px solid $c-gray-light
 
     #{$block}__row:last-child &
@@ -300,7 +307,8 @@ $block: ".cashup-table"
       #{$block}_role_djs-list &,
       #{$block}_role_pr-list &,
       #{$block}_role_wages &,
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         border-bottom: 1px solid $c-gray-light
 
     #{$block}_role_card-till-comparison &
@@ -336,7 +344,8 @@ $block: ".cashup-table"
       #{$block}_role_djs-list &,
       #{$block}_role_pr-list &,
       #{$block}_role_wages &,
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         border-left: 1px solid $c-gray-light
 
     &:last-child
@@ -351,7 +360,8 @@ $block: ".cashup-table"
       #{$block}_role_djs-list &,
       #{$block}_role_pr-list &,
       #{$block}_role_wages &,
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         border-right: 1px solid $c-gray-light
 
     // $Table cell first column
@@ -389,6 +399,9 @@ $block: ".cashup-table"
       #{$block}_role_wages-admin &
         width: 10%
 
+      #{$block}_role_deposits &
+        width: 15%
+
     // $Table cell second column
     &:nth-child(2)
       #{$block}_role_configuration &
@@ -425,6 +438,9 @@ $block: ".cashup-table"
       #{$block}_role_wages-admin &
         width: 9%
 
+      #{$block}_role_deposits &
+        width: 20%
+
     // $Table cell third column
     &:nth-child(3)
       #{$block}_role_configuration &
@@ -455,6 +471,9 @@ $block: ".cashup-table"
       #{$block}_role_wages-admin &
         width: 9%
 
+      #{$block}_role_deposits &
+        width: 20%
+
     // $Table cell fourth column
     &:nth-child(4)
       #{$block}_role_configuration &
@@ -479,6 +498,9 @@ $block: ".cashup-table"
       #{$block}_role_wages-admin &
         width: 10%
 
+      #{$block}_role_deposits &
+        width: 25%
+
     // $Table cell fifth column
     &:nth-child(5)
       #{$block}_role_security-djs-pr &
@@ -497,6 +519,9 @@ $block: ".cashup-table"
         width: 8%
         min-width: 75px
         justify-content: center
+
+      #{$block}_role_deposits &
+        width: 20%
 
     // $Table cell sixth column
     &:nth-child(6)
@@ -725,12 +750,14 @@ $block: ".cashup-table"
     #{$block}_role_security-list > &:last-child,
     #{$block}_role_djs-list > &:last-child,
     #{$block}_role_pr-list > &:last-child,
-    #{$block}_role_wages > &:last-child
-    #{$block}_role_wages-admin > &:last-child
+    #{$block}_role_wages > &:last-child,
+    #{$block}_role_wages-admin > &:last-child,
+    #{$block}_role_deposits > &:last-child
       font-size: 16px
       color: $c-gray-dark
 
-    #{$block}_role_wages-admin > &:only-child
+    #{$block}_role_wages-admin > &:only-child,
+    #{$block}_role_deposits > &:only-child
       margin-top: 20px
 
     @media screen and (max-width: 1280px)
