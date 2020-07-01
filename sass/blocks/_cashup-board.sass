@@ -33,6 +33,9 @@ $block: ".cashup-board"
   // $Board MOD: role wages admin
   &_role_wages-admin
 
+  // $Board MOD: role deposits
+  &_role_deposits
+
 
   // $Board filter
   &__filter
@@ -41,21 +44,24 @@ $block: ".cashup-board"
     padding: 20px
     background-color: $c-gray-hyper-light
 
-    #{$block}_role_wages-admin &
+    #{$block}_role_wages-admin &,
+    #{$block}_role_deposits &
       position: sticky
       top: 0
       z-index: 60
 
     // Set default position in Edge
     @supports (-ms-ime-align: auto)
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         position: static
         z-index: auto
         top: auto
 
     // Set default position in IE11
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposits &
         position: static
         z-index: auto
         top: auto
@@ -67,15 +73,9 @@ $block: ".cashup-board"
     width: 100%
     padding: 20px
 
-    #{$block}_role_wages-admin #{$block}__filter + &
+    #{$block}_role_wages-admin #{$block}__filter + &,
+    #{$block}_role_deposits #{$block}__filter + &
       padding-top: 0
-
-
-  // $Board inner
-  &__inner
-    display: block
-    width: 100%
-    padding: 20px
 
 
   // $Board scroll container
