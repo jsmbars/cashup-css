@@ -36,6 +36,27 @@ $block: ".cashup-board"
   // $Board MOD: role deposits
   &_role_deposits
 
+  // $Board MOD: role pdq-summary
+  &_role_pdq-summary
+
+  // $Board MOD: role pdq-summary-filter
+  &_role_pdq-summary-filter
+    position: sticky
+    top: 0
+    z-index: 60
+
+    // Set default position in Edge
+    @supports (-ms-ime-align: auto)
+      position: static
+      z-index: auto
+      top: auto
+
+    // Set default position in IE11
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+      position: static
+      z-index: auto
+      top: auto
+
 
   // $Board filter
   &__filter
@@ -131,6 +152,18 @@ $block: ".cashup-board"
       display: none
 
 
+  // $Board footer
+  &__footer
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding: 20px
+    border-top: 1px solid $c-gray-extra-light
+
+
   // $Board group
   &__group
     display: block
@@ -151,6 +184,33 @@ $block: ".cashup-board"
     line-height: 1
     font-weight: 400
     color: $c-gray-ultra-dark
+
+
+  // $Board text
+  &__text
+    display: block
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 400
+    color: $c-gray-ultra-dark
+
+    // $Board text MOD: size small
+    &_size_s
+      font-size: 12px
+
+    // $Board text MOD: size large
+    &_size_l
+      font-size: 16px
+
+
+  // $Board text light
+  &__text-light
+    font-weight: 300
+
+
+  // $Board text bold
+  &__text-bold
+    font-weight: 600
 
 
   // $Board toggle
