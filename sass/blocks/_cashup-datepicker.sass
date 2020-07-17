@@ -304,6 +304,20 @@ $block: ".cashup-datepicker"
     border-color: $c-turquoise-medium
     color: $c-white
 
+  & .flatpickr-day.week,
+  & .flatpickr-day.week:focus,
+  & .flatpickr-day.week:hover,
+  & .flatpickr-day.week.prevMonthDay,
+  & .flatpickr-day.week.nextMonthDay,
+  & .flatpickr-day.week.inRange:hover,
+  & .flatpickr-day.week.prevMonthDay.inRange:hover,
+  & .flatpickr-day.week.nextMonthDay.inRange:hover
+    // IE 11 selected week days highlight
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+      background-color: $c-turquoise-medium
+      border-color: $c-turquoise-medium
+      color: $c-white
+
   & .flatpickr-day.inRange:hover
     background-color: $c-turquoise-extra-light
     border-color: $c-turquoise-extra-light
@@ -363,3 +377,10 @@ $block: ".cashup-datepicker"
   & .flatpickr-day.week.selected
     border-radius: 0
     box-shadow: -5px 0 0 $c-turquoise-medium, 5px 0 0 $c-turquoise-medium
+
+  & .flatpickr-day.week,
+  & .flatpickr-day.week.selected
+    // IE 11 selected week days highlight
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+      border-radius: 0
+      box-shadow: -5px 0 0 $c-turquoise-medium, 5px 0 0 $c-turquoise-medium
