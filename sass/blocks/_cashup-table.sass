@@ -407,7 +407,7 @@ $block: ".cashup-table"
         width: 12%
 
       #{$block}_role_wages-admin &
-        width: 9%
+        width: 7%
 
       #{$block}_role_deposits &
         width: 20%
@@ -433,6 +433,9 @@ $block: ".cashup-table"
       @media screen and (max-width: 1600px)
         #{$block}_role_pdq-summary &
           width: 20%
+
+        #{$block}_role_wages-admin &
+          width: 9%
 
     // $Table cell third column
     &:nth-child(3)
@@ -508,7 +511,7 @@ $block: ".cashup-table"
         width: 16%
 
       #{$block}_role_wages-admin &
-        width: 10%
+        width: 9%
 
       #{$block}_role_deposits &
         width: 25%
@@ -532,6 +535,9 @@ $block: ".cashup-table"
         #{$block}_role_pdq-summary &
           width: 40%
 
+        #{$block}_role_wages-admin &
+          width: 10%
+
     // $Table cell fifth column
     &:nth-child(5)
       #{$block}_role_security-djs-pr &
@@ -547,7 +553,7 @@ $block: ".cashup-table"
         justify-content: center
 
       #{$block}_role_wages-admin &
-        width: 8%
+        width: 7%
         min-width: 75px
         justify-content: center
 
@@ -566,17 +572,21 @@ $block: ".cashup-table"
       #{$block}_role_deposit-reports-current-site &
         width: 14%
 
+      @media screen and (max-width: 1600px)
+        #{$block}_role_wages-admin &
+          width: 8%
+
     // $Table cell sixth column
     &:nth-child(6)
       #{$block}_role_security-djs-pr &
         width: 10%
 
       #{$block}_role_wages &
-        width: 10%
+        width: 11%
         justify-content: center
 
       #{$block}_role_wages-admin &
-        width: 8%
+        width: 11%
         min-width: 75px
         justify-content: center
 
@@ -585,6 +595,13 @@ $block: ".cashup-table"
 
       #{$block}_role_deposit-reports-current-site &
         width: 14%
+
+      @media screen and (max-width: 1600px)
+        #{$block}_role_wages &
+          width: 10%
+
+        #{$block}_role_wages-admin &
+          width: 8%
 
     // $Table cell seventh column
     &:nth-child(7)
@@ -597,7 +614,7 @@ $block: ".cashup-table"
         width: 235px
 
       #{$block}_role_wages-admin &
-        width: 9%
+        width: 10%
 
       #{$block}_role_cash-report &
         width: 14%
@@ -606,15 +623,22 @@ $block: ".cashup-table"
         #{$block}_role_wages &
           width: 225px
 
+        #{$block}_role_wages-admin &
+          width: 9%
+
     // $Table cell eighth column
     &:nth-child(8)
       #{$block}_role_security-djs-pr &
         width: 10%
 
       #{$block}_role_wages-admin &
-        width: 8%
+        width: 7%
         min-width: 70px
         justify-content: center
+
+      @media screen and (max-width: 1600px)
+        #{$block}_role_wages-admin &
+          width: 8%
 
     // $Table cell ninth column
     &:nth-child(9)
@@ -633,7 +657,11 @@ $block: ".cashup-table"
     // $Table cell tenth column
     &:nth-child(10)
       #{$block}_role_wages-admin &
-        width: 9%
+        width: 10%
+
+      @media screen and (max-width: 1600px)
+        #{$block}_role_wages-admin &
+          width: 9%
 
     // $Table cell eleventh column
     &:nth-child(11)
