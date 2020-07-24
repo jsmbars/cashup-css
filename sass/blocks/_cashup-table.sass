@@ -27,37 +27,10 @@ $block: ".cashup-table"
   position: relative
   display: block
   width: 100%
-  border: 1px solid $c-gray-light
 
   // $Table MOD: role configuration
   &_role_configuration
     min-width: 1200px
-
-  // $Table MOD: role card-till-comparison
-  // $Table MOD: role payouts today
-  // $Table MOD: role payouts regular
-  // $Table MOD: role extra income today
-  // $Table MOD: role extra income regular
-  // $Table MOD: role wages
-  // $Table MOD: role wages admin
-  // $Table MOD: role deposits
-  // $Table MOD: role pdq summary
-  // $Table MOD: role cash report comparison
-  &_role_card-till-comparison,
-  &_role_payouts-today,
-  &_role_payouts-regular,
-  &_role_extra-income-today,
-  &_role_extra-income-regular,
-  &_role_security-djs-pr,
-  &_role_security-list,
-  &_role_djs-list,
-  &_role_pr-list,
-  &_role_wages,
-  &_role_wages-admin,
-  &_role_deposits,
-  &_role_pdq-summary,
-  &_role_cash-report-comparison
-    border: none
 
   &_role_cash-report-comparison
     width: 28%
@@ -70,6 +43,11 @@ $block: ".cashup-table"
     display: block
     width: 100%
     background-color: $c-white
+
+    // $Table group MOD: role title
+    &_role_title
+      #{$block}_role_deposit-reports-all-sites-group &
+        background-color: $c-blue-extra-light
 
     // $Table group MOD: role form
     &_role_form
@@ -129,14 +107,18 @@ $block: ".cashup-table"
       #{$block}_role_pr-list &,
       #{$block}_role_wages &,
       #{$block}_role_wages-admin &,
-      #{$block}_role_deposits &
+      #{$block}_role_deposits &,
+      #{$block}_role_deposit-reports-all-sites > &,
+      #{$block}_role_deposit-reports-current-site > &
         position: sticky
         top: 80px
         z-index: 50
         box-shadow: 0 1px 0 0 $c-gray-light
 
       #{$block}_role_wages-admin &,
-      #{$block}_role_deposits &
+      #{$block}_role_deposits &,
+      #{$block}_role_deposit-reports-all-sites > &,
+      #{$block}_role_deposit-reports-current-site > &
         padding-top: 20px
 
       // Set default position in Edge
@@ -151,7 +133,9 @@ $block: ".cashup-table"
         #{$block}_role_pr-list &,
         #{$block}_role_wages &,
         #{$block}_role_wages-admin &,
-        #{$block}_role_deposits &
+        #{$block}_role_deposits &,
+        #{$block}_role_deposit-reports-all-sites > &,
+        #{$block}_role_deposit-reports-current-site > &
           position: relative
           z-index: auto
           top: auto
@@ -169,7 +153,9 @@ $block: ".cashup-table"
         #{$block}_role_pr-list &,
         #{$block}_role_wages &,
         #{$block}_role_wages-admin &,
-        #{$block}_role_deposits &
+        #{$block}_role_deposits &,
+        #{$block}_role_deposit-reports-all-sites > &,
+        #{$block}_role_deposit-reports-current-site > &
           position: relative
           z-index: auto
           top: auto
@@ -186,11 +172,13 @@ $block: ".cashup-table"
       #{$block}_role_djs-list &,
       #{$block}_role_pr-list &,
       #{$block}_role_wages &,
-      #{$block}_role_wages-admin &
+      #{$block}_role_wages-admin &,
+      #{$block}_role_deposit-reports-all-sites > &,
+      #{$block}_role_deposit-reports-current-site > &
         position: sticky
         bottom: 0
         z-index: 50
-        box-shadow: 0 -1px 0 0 $c-gray-light
+        box-shadow: 0 -2px 0 0 $c-gray-light
 
       // Set default position in Edge
       @supports (-ms-ime-align: auto)
@@ -203,7 +191,9 @@ $block: ".cashup-table"
         #{$block}_role_djs-list &,
         #{$block}_role_pr-list &,
         #{$block}_role_wages &,
-        #{$block}_role_wages-admin &
+        #{$block}_role_wages-admin &,
+        #{$block}_role_deposit-reports-all-sites > &,
+        #{$block}_role_deposit-reports-current-site > &
           position: relative
           z-index: auto
           top: auto
@@ -220,7 +210,9 @@ $block: ".cashup-table"
         #{$block}_role_djs-list &,
         #{$block}_role_pr-list &,
         #{$block}_role_wages &,
-        #{$block}_role_wages-admin &
+        #{$block}_role_wages-admin &,
+        #{$block}_role_deposit-reports-all-sites > &,
+        #{$block}_role_deposit-reports-current-site > &
           position: relative
           z-index: auto
           top: auto
@@ -267,45 +259,15 @@ $block: ".cashup-table"
     border-right: 1px solid $c-gray-light
     border-bottom: 1px solid $c-gray-light
 
-    #{$block}__row:first-child &
-      #{$block}_role_card-till-comparison &
-        padding-top: 15px
-
-      #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &,
-      #{$block}_role_extra-income-today &,
-      #{$block}_role_extra-income-regular &,
-      #{$block}_role_security-djs-pr &,
-      #{$block}_role_security-list &,
-      #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &,
-      #{$block}_role_wages &,
-      #{$block}_role_wages-admin &,
-      #{$block}_role_deposits &
-        border-top: 1px solid $c-gray-light
-
-    #{$block}__row:last-child &
-      border-bottom: none
-
-      #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &,
-      #{$block}_role_extra-income-today &,
-      #{$block}_role_extra-income-regular &,
-      #{$block}_role_security-djs-pr &,
-      #{$block}_role_security-list &,
-      #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &,
-      #{$block}_role_wages &,
-      #{$block}_role_wages-admin &,
-      #{$block}_role_deposits &
-        border-bottom: 1px solid $c-gray-light
-
     #{$block}_role_card-till-comparison &
       align-items: flex-start
       min-height: 0
       padding: 10px 15px
       border-right: none
       border-bottom: none
+
+    #{$block}_role_card-till-comparison #{$block}__row:first-child &
+      padding-top: 15px
 
     #{$block}_role_pdq-summary &
       min-height: 0
@@ -319,7 +281,6 @@ $block: ".cashup-table"
       border-right: none
       border-bottom: none
 
-
     @media screen and (max-width: 1600px)
       #{$block}_role_security-djs-pr &,
       #{$block}_role_wages &
@@ -331,34 +292,20 @@ $block: ".cashup-table"
         padding-right: 3px
 
     &:first-child
-      #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &,
-      #{$block}_role_extra-income-today &,
-      #{$block}_role_extra-income-regular &,
-      #{$block}_role_security-djs-pr &,
-      #{$block}_role_security-list &,
-      #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &,
-      #{$block}_role_wages &,
-      #{$block}_role_wages-admin &,
-      #{$block}_role_deposits &
-        border-left: 1px solid $c-gray-light
+      border-left: 1px solid $c-gray-light
+
+      #{$block}_role_card-till-comparison &,
+      #{$block}_role_pdq-summary &,
+      #{$block}_role_cash-report-comparison &
+        border-left: none
 
     &:last-child
-      border-right: none
+      border-right: 1px solid $c-gray-light
 
-      #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &,
-      #{$block}_role_extra-income-today &,
-      #{$block}_role_extra-income-regular &,
-      #{$block}_role_security-djs-pr &,
-      #{$block}_role_security-list &,
-      #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &,
-      #{$block}_role_wages &,
-      #{$block}_role_wages-admin &,
-      #{$block}_role_deposits &
-        border-right: 1px solid $c-gray-light
+      #{$block}_role_card-till-comparison &,
+      #{$block}_role_pdq-summary &,
+      #{$block}_role_cash-report-comparison &
+        border-right: none
 
     // $Table cell first column
     &:nth-child(1)
@@ -406,6 +353,21 @@ $block: ".cashup-table"
 
       #{$block}_role_cash-report-comparison &
         width: 14%
+
+      #{$block}_role_deposit-reports-all-sites &
+        width: 28%
+
+      #{$block}_role_deposit-reports-all-sites-group &
+        width: 28%
+
+      #{$block}_role_deposit-reports-all-sites-group #{$block}__row:not(:last-child) &
+        border-bottom: none
+
+      #{$block}_role_deposit-reports-current-site &
+        width: 26%
+
+      #{$block}_role_deposit-reports-current-site #{$block}__row:not(:last-child) &
+        border-bottom: none
 
       @media screen and (max-width: 1600px)
         #{$block}_role_pdq-summary &
@@ -459,6 +421,15 @@ $block: ".cashup-table"
       #{$block}_role_cash-report-comparison &
         width: 14%
 
+      #{$block}_role_deposit-reports-all-sites &
+        width: 18%
+
+      #{$block}_role_deposit-reports-all-sites-group &
+        width: 18%
+
+      #{$block}_role_deposit-reports-current-site &
+        width: 18%
+
       @media screen and (max-width: 1600px)
         #{$block}_role_pdq-summary &
           width: 20%
@@ -502,6 +473,15 @@ $block: ".cashup-table"
       #{$block}_role_cash-report &
         width: 14%
 
+      #{$block}_role_deposit-reports-all-sites &
+        width: 18%
+
+      #{$block}_role_deposit-reports-all-sites-group &
+        width: 18%
+
+      #{$block}_role_deposit-reports-current-site &
+        width: 14%
+
       @media screen and (max-width: 1600px)
         #{$block}_role_pdq-summary &
           width: 20%
@@ -539,6 +519,15 @@ $block: ".cashup-table"
       #{$block}_role_cash-report &
         width: 14%
 
+      #{$block}_role_deposit-reports-all-sites &
+        width: 18%
+
+      #{$block}_role_deposit-reports-all-sites-group &
+        width: 18%
+
+      #{$block}_role_deposit-reports-current-site &
+        width: 14%
+
       @media screen and (max-width: 1600px)
         #{$block}_role_pdq-summary &
           width: 40%
@@ -568,6 +557,15 @@ $block: ".cashup-table"
       #{$block}_role_cash-report &
         width: 14%
 
+      #{$block}_role_deposit-reports-all-sites &
+        width: 18%
+
+      #{$block}_role_deposit-reports-all-sites-group &
+        width: 18%
+
+      #{$block}_role_deposit-reports-current-site &
+        width: 14%
+
     // $Table cell sixth column
     &:nth-child(6)
       #{$block}_role_security-djs-pr &
@@ -583,6 +581,9 @@ $block: ".cashup-table"
         justify-content: center
 
       #{$block}_role_cash-report &
+        width: 14%
+
+      #{$block}_role_deposit-reports-current-site &
         width: 14%
 
     // $Table cell seventh column
@@ -645,8 +646,10 @@ $block: ".cashup-table"
         #{$block}_role_wages-admin &
           width: 120px
 
+    // $Table cell MOD: role title
     // $Table cell MOD: role header
     // $Table cell MOD: role footer
+    &_role_title,
     &_role_header,
     &_role_footer
       font-size: 14px
@@ -658,7 +661,15 @@ $block: ".cashup-table"
         #{$block}_role_wages-admin &
           font-size: 12px
 
+    &_role_title
+      &:nth-child(1)
+        #{$block}_role_deposit-reports-all-sites-group &
+          width: 100%
+          font-size: 16px
+
     &_role_header
+      border-top: 1px solid $c-gray-light
+
       #{$block}_role_configuration &
         justify-content: center
         text-align: center
@@ -668,7 +679,6 @@ $block: ".cashup-table"
         #{$block}_role_configuration &
           padding-top: 15px
           padding-bottom: 15px
-
 
       &:nth-child(5),
       &:nth-child(6)
@@ -680,65 +690,20 @@ $block: ".cashup-table"
         #{$block}_role_wages-admin &
           text-align: center
 
+    &_role_footer
+      &:nth-child(1)
+        #{$block}_role_deposit-reports-current-site &
+          border-right: none
+
     &_role_form
-      #{$block}_role_payouts-today &,
-      #{$block}_role_payouts-regular &,
-      #{$block}_role_extra-income-today &,
-      #{$block}_role_extra-income-regular &,
-      #{$block}_role_security-djs-pr &,
-      #{$block}_role_security-list &,
-      #{$block}_role_djs-list &,
-      #{$block}_role_pr-list &,
-      #{$block}_role_wages &
-        border-right: none
-
-      #{$block}__row:first-child &
-        #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &,
-        #{$block}_role_extra-income-today &,
-        #{$block}_role_extra-income-regular &,
-        #{$block}_role_security-djs-pr &,
-        #{$block}_role_security-list &,
-        #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &,
-        #{$block}_role_wages &
-          border-top: none
-
-      #{$block}__row:last-child &
-        #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &,
-        #{$block}_role_extra-income-today &,
-        #{$block}_role_extra-income-regular &,
-        #{$block}_role_security-djs-pr &,
-        #{$block}_role_security-list &,
-        #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &,
-        #{$block}_role_wages &
-          border-bottom: none
+      border-right: none
+      border-bottom: none
 
       &:first-child
-        #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &,
-        #{$block}_role_extra-income-today &,
-        #{$block}_role_extra-income-regular &,
-        #{$block}_role_security-djs-pr &,
-        #{$block}_role_security-list &,
-        #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &,
-        #{$block}_role_wages &
-          border-left: none
+        border-left: none
 
       &:last-child
-        #{$block}_role_payouts-today &,
-        #{$block}_role_payouts-regular &,
-        #{$block}_role_extra-income-today &,
-        #{$block}_role_extra-income-regular &,
-        #{$block}_role_security-djs-pr &,
-        #{$block}_role_security-list &,
-        #{$block}_role_djs-list &,
-        #{$block}_role_pr-list &,
-        #{$block}_role_wages &
-          border-right: none
+        border-right: none
 
     @each $table-cell-highlight-name, $table-cell-highlight-value in $table-cell-highlights
       &_highlight_#{$table-cell-highlight-name}
@@ -806,12 +771,16 @@ $block: ".cashup-table"
     #{$block}_role_pr-list > &:last-child,
     #{$block}_role_wages > &:last-child,
     #{$block}_role_wages-admin > &:last-child,
-    #{$block}_role_deposits > &:last-child
+    #{$block}_role_deposits > &:last-child,
+    #{$block}_role_deposit-reports-all-sites > &:last-child,
+    #{$block}_role_deposit-reports-current-site > &:last-child
       font-size: 16px
       color: $c-gray-dark
 
     #{$block}_role_wages-admin > &:only-child,
-    #{$block}_role_deposits > &:only-child
+    #{$block}_role_deposits > &:only-child,
+    #{$block}_role_deposit-reports-all-sites > &:only-child,
+    #{$block}_role_deposit-reports-current-site > &:only-child
       margin-top: 20px
 
     @media screen and (max-width: 1280px)
