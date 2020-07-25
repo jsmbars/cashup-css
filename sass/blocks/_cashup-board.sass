@@ -57,6 +57,9 @@ $block: ".cashup-board"
       z-index: auto
       top: auto
 
+  // $Board MOD: role deposit-reports
+  &_role_deposit-reports
+
 
   // $Board filter
   &__filter
@@ -66,7 +69,8 @@ $block: ".cashup-board"
     background-color: $c-gray-hyper-light
 
     #{$block}_role_wages-admin &,
-    #{$block}_role_deposits &
+    #{$block}_role_deposits &,
+    #{$block}_role_deposit-reports &
       position: sticky
       top: 0
       z-index: 60
@@ -74,7 +78,8 @@ $block: ".cashup-board"
     // Set default position in Edge
     @supports (-ms-ime-align: auto)
       #{$block}_role_wages-admin &,
-      #{$block}_role_deposits &
+      #{$block}_role_deposits &,
+      #{$block}_role_deposit-reports &
         position: static
         z-index: auto
         top: auto
@@ -82,7 +87,8 @@ $block: ".cashup-board"
     // Set default position in IE11
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
       #{$block}_role_wages-admin &,
-      #{$block}_role_deposits &
+      #{$block}_role_deposits &,
+      #{$block}_role_deposit-reports &
         position: static
         z-index: auto
         top: auto
@@ -95,7 +101,8 @@ $block: ".cashup-board"
     padding: 20px
 
     #{$block}_role_wages-admin #{$block}__filter + &,
-    #{$block}_role_deposits #{$block}__filter + &
+    #{$block}_role_deposits #{$block}__filter + &,
+    #{$block}_role_deposit-reports #{$block}__filter + &
       padding-top: 0
 
 
