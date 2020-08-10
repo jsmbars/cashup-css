@@ -109,7 +109,8 @@ $block: ".cashup-table"
       #{$block}_role_wages-admin &,
       #{$block}_role_deposits &,
       #{$block}_role_deposit-reports-all-sites > &,
-      #{$block}_role_deposit-reports-current-site > &
+      #{$block}_role_deposit-reports-current-site > &,
+      #{$block}_role_tills-report &
         position: sticky
         top: 80px
         z-index: 50
@@ -118,7 +119,8 @@ $block: ".cashup-table"
       #{$block}_role_wages-admin &,
       #{$block}_role_deposits &,
       #{$block}_role_deposit-reports-all-sites > &,
-      #{$block}_role_deposit-reports-current-site > &
+      #{$block}_role_deposit-reports-current-site > &,
+      #{$block}_role_tills-report &
         padding-top: 20px
 
       // Set default position in Edge
@@ -135,7 +137,8 @@ $block: ".cashup-table"
         #{$block}_role_wages-admin &,
         #{$block}_role_deposits &,
         #{$block}_role_deposit-reports-all-sites > &,
-        #{$block}_role_deposit-reports-current-site > &
+        #{$block}_role_deposit-reports-current-site > &,
+        #{$block}_role_tills-report &
           position: relative
           z-index: auto
           top: auto
@@ -155,7 +158,8 @@ $block: ".cashup-table"
         #{$block}_role_wages-admin &,
         #{$block}_role_deposits &,
         #{$block}_role_deposit-reports-all-sites > &,
-        #{$block}_role_deposit-reports-current-site > &
+        #{$block}_role_deposit-reports-current-site > &,
+        #{$block}_role_tills-report &
           position: relative
           z-index: auto
           top: auto
@@ -174,7 +178,8 @@ $block: ".cashup-table"
       #{$block}_role_wages &,
       #{$block}_role_wages-admin &,
       #{$block}_role_deposit-reports-all-sites > &,
-      #{$block}_role_deposit-reports-current-site > &
+      #{$block}_role_deposit-reports-current-site > &,
+      #{$block}_role_tills-report &
         position: sticky
         bottom: 0
         z-index: 50
@@ -193,7 +198,8 @@ $block: ".cashup-table"
         #{$block}_role_wages &,
         #{$block}_role_wages-admin &,
         #{$block}_role_deposit-reports-all-sites > &,
-        #{$block}_role_deposit-reports-current-site > &
+        #{$block}_role_deposit-reports-current-site > &,
+        #{$block}_role_tills-report &
           position: relative
           z-index: auto
           top: auto
@@ -212,11 +218,15 @@ $block: ".cashup-table"
         #{$block}_role_wages &,
         #{$block}_role_wages-admin &,
         #{$block}_role_deposit-reports-all-sites > &,
-        #{$block}_role_deposit-reports-current-site > &
+        #{$block}_role_deposit-reports-current-site > &,
+        #{$block}_role_tills-report &
           position: relative
           z-index: auto
           top: auto
           box-shadow: none
+
+    // $Table group MOD: role main
+    &_role_main
 
 
   // $Table row
@@ -227,6 +237,27 @@ $block: ".cashup-table"
     align-items: stretch
     width: 100%
     background-color: $c-white
+
+    #{$block}_role_tills-report &
+      position: relative
+      overflow-x: auto
+
+    #{$block}_role_tills-report #{$block}__group_role_header &,
+    #{$block}_role_tills-report #{$block}__group_role_main &
+      -ms-overflow-style: none
+      scrollbar-width: none
+
+    #{$block}_role_tills-report #{$block}__group_role_header &::-webkit-scrollbar,
+    #{$block}_role_tills-report #{$block}__group_role_main &::-webkit-scrollbar
+      display: none
+
+    &:after
+      #{$block}_role_tills-report &
+        content: ''
+        flex-grow: 0
+        flex-shrink: 0
+        display: block
+        width: 1px
 
     &:not(:last-child)
       #{$block}_role_pdq-summary &
@@ -245,6 +276,63 @@ $block: ".cashup-table"
     @each $table-row-highlight-name, $table-row-highlight-value in $table-row-highlights
       &_highlight_#{$table-row-highlight-name}
         background-color: $table-row-highlight-value
+
+
+    // $Table column
+  &__column
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+
+    #{$block}_role_tills-report &
+      width: calc((100% - 200px) / 15)
+      min-width: 90px
+      border-right: 1px solid $c-gray-light
+
+    #{$block}_role_tills-report #{$block}__group_role_header &
+      border-top: 1px solid $c-gray-light
+
+    #{$block}_role_tills-report #{$block}__group_role_footer &
+      border-bottom: 1px solid $c-gray-light
+
+    &:first-child,
+    &:last-child
+      #{$block}_role_tills-report &
+        position: sticky
+        z-index: 40
+        flex-grow: 0
+        flex-shrink: 0
+        width: 100px
+        min-width: 0
+
+      // Set default position in Edge
+      @supports (-ms-ime-align: auto)
+        #{$block}_role_tills-report &
+          position: relative
+          z-index: auto
+          top: auto
+          box-shadow: none
+
+      // Set default position in IE11
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+        #{$block}_role_tills-report &
+          position: relative
+          z-index: auto
+          top: auto
+          box-shadow: none
+
+    &:first-child
+      #{$block}_role_tills-report &
+        left: 0
+        border-left: 1px solid $c-gray-light
+        box-shadow: 1px 0 0 0 $c-gray-light
+
+    &:last-child
+      #{$block}_role_tills-report &
+        right: 0
+        border-right: 1px solid $c-gray-light
+        box-shadow: -2px 0 0 0 $c-gray-light
 
 
   // $Table cell
@@ -281,6 +369,20 @@ $block: ".cashup-table"
       border-right: none
       border-bottom: none
 
+    #{$block}_role_tills-report &
+      min-height: 60px
+      padding: 10px 5px
+      border-right: none
+
+    #{$block}_role_tills-report #{$block}__group_role_footer &
+      border-bottom: none
+
+    #{$block}_role_tills-report #{$block}__group_role_header &,
+    #{$block}_role_tills-report #{$block}__group_role_footer &,
+    #{$block}_role_tills-report #{$block}__column:first-child &,
+    #{$block}_role_tills-report #{$block}__column:last-child &
+      background-color: $c-gray-hyper-light
+
     @media screen and (max-width: 1600px)
       #{$block}_role_security-djs-pr &,
       #{$block}_role_wages &
@@ -296,7 +398,8 @@ $block: ".cashup-table"
 
       #{$block}_role_card-till-comparison &,
       #{$block}_role_pdq-summary &,
-      #{$block}_role_cash-report-comparison &
+      #{$block}_role_cash-report-comparison &,
+      #{$block}_role_tills-report &
         border-left: none
 
     &:last-child
@@ -304,7 +407,8 @@ $block: ".cashup-table"
 
       #{$block}_role_card-till-comparison &,
       #{$block}_role_pdq-summary &,
-      #{$block}_role_cash-report-comparison &
+      #{$block}_role_cash-report-comparison &,
+      #{$block}_role_tills-report &
         border-right: none
 
     // $Table cell first column
@@ -782,7 +886,11 @@ $block: ".cashup-table"
     #{$block}__cell_role_footer &,
     #{$block}_role_card-till-comparison #{$block}__cell:nth-child(2) &,
     #{$block}_role_pdq-summary #{$block}__cell:nth-child(4) &,
-    #{$block}_role_cash-report-comparison &
+    #{$block}_role_cash-report-comparison &,
+    #{$block}_role_tills-report #{$block}__group_role_header &,
+    #{$block}_role_tills-report #{$block}__group_role_footer &,
+    #{$block}_role_tills-report #{$block}__column:first-child &,
+    #{$block}_role_tills-report #{$block}__column:last-child &
       font-weight: 600
 
     #{$block}_role_card-till-comparison #{$block}__cell:nth-child(2) &,
@@ -801,14 +909,16 @@ $block: ".cashup-table"
     #{$block}_role_wages-admin > &:last-child,
     #{$block}_role_deposits > &:last-child,
     #{$block}_role_deposit-reports-all-sites > &:last-child,
-    #{$block}_role_deposit-reports-current-site > &:last-child
+    #{$block}_role_deposit-reports-current-site > &:last-child,
+    #{$block}_role_tills-report > &:last-child
       font-size: 16px
       color: $c-gray-dark
 
     #{$block}_role_wages-admin > &:only-child,
     #{$block}_role_deposits > &:only-child,
     #{$block}_role_deposit-reports-all-sites > &:only-child,
-    #{$block}_role_deposit-reports-current-site > &:only-child
+    #{$block}_role_deposit-reports-current-site > &:only-child,
+    #{$block}_role_tills-report > &:only-child
       margin-top: 20px
 
     @media screen and (max-width: 1280px)
