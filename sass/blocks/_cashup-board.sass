@@ -70,7 +70,8 @@ $block: ".cashup-board"
 
     #{$block}_role_wages-admin &,
     #{$block}_role_deposits &,
-    #{$block}_role_deposit-reports &
+    #{$block}_role_deposit-reports &,
+    #{$block}_role_tills-report &
       position: sticky
       top: 0
       z-index: 60
@@ -79,7 +80,8 @@ $block: ".cashup-board"
     @supports (-ms-ime-align: auto)
       #{$block}_role_wages-admin &,
       #{$block}_role_deposits &,
-      #{$block}_role_deposit-reports &
+      #{$block}_role_deposit-reports &,
+      #{$block}_role_tills-report &
         position: static
         z-index: auto
         top: auto
@@ -88,7 +90,8 @@ $block: ".cashup-board"
     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
       #{$block}_role_wages-admin &,
       #{$block}_role_deposits &,
-      #{$block}_role_deposit-reports &
+      #{$block}_role_deposit-reports &,
+      #{$block}_role_tills-report &
         position: static
         z-index: auto
         top: auto
@@ -102,7 +105,8 @@ $block: ".cashup-board"
 
     #{$block}_role_wages-admin #{$block}__filter + &,
     #{$block}_role_deposits #{$block}__filter + &,
-    #{$block}_role_deposit-reports #{$block}__filter + &
+    #{$block}_role_deposit-reports #{$block}__filter + &,
+    #{$block}_role_tills-report #{$block}__filter + &
       padding-top: 0
 
 
