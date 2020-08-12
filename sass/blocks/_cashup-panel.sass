@@ -44,6 +44,30 @@ $block: ".cashup-panel"
     width: 300px
     border-radius: 0
 
+  // $Panel MOD: role summary till categories
+  // $Panel MOD: role summary till category
+  // $Panel MOD: role summary extra income
+  // $Panel MOD: role summary group totals
+  &_role_summary-till-categories,
+  &_role_summary-till-category,
+  &_role_summary-extra-income,
+  &_role_summary-group-totals
+    border-radius: 0
+    background-color: transparent
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+  &_role_summary-till-categories,
+  &_role_summary-extra-income,
+  &_role_summary-group-totals
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+
 
   // $Panel header
   &__header
@@ -69,6 +93,52 @@ $block: ".cashup-panel"
       justify-content: center
       padding: 10px 15px 15px
 
+    #{$block}_role_summary-till-categories &,
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      padding: 0
+      border-bottom: none
+
+    #{$block}_role_summary-till-categories &
+      justify-content: space-between
+
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      flex-direction: column
+      justify-content: center
+      text-align: center
+
+
+  // $Panel header actions
+  &__header-actions
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+
+
+  // $Panel header action
+  &__header-action
+    flex-grow: 0
+    flex-shrink: 0
+
+    &:not(:last-child)
+      margin-right: 20px
+
+
+  // $Panel header group
+  &__header-group
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      #{$block}_role_summary-till-category &
+        margin-bottom: 10px
+
 
   // $Panel content
   &__content
@@ -85,6 +155,23 @@ $block: ".cashup-panel"
     #{$block}_role_pdq &
       padding: 15px
 
+    #{$block}_role_summary-till-categories &
+      padding-top: 25px
+
+    #{$block}_role_summary-till-category &
+      padding-top: 10px
+
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      padding-top: 10px
+      padding-bottom: 15px
+
+    #{$block}_role_summary-till-categories &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      flex-grow: 1
+      flex-shrink: 1
+
 
   // $Panel content inner
   &__content-inner
@@ -96,6 +183,27 @@ $block: ".cashup-panel"
     #{$block}_role_till &
       height: 100%
       overflow: hidden
+
+
+  // $Panel footer
+  &__footer
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    padding: 15px 20px
+    border-top: 1px solid $c-gray-extra-light
+
+    #{$block}_role_summary-till-categories &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      justify-content: center
+      padding: 10px
+      border-top: none
+      text-align: center
+      background-color: $c-green-light
 
 
   // $Panel group
@@ -121,6 +229,26 @@ $block: ".cashup-panel"
     #{$block}_role_tills &,
     #{$block}_role_till &
       padding: 15px 0
+
+
+  // $Panel list
+  &__list
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    flex-wrap: wrap
+    width: 100%
+
+  // $Panel list item
+  &__list-item
+    flex-grow: 0
+    flex-shrink: 0
+    padding-right: 10px
+    padding-bottom: 20px
+
+    #{$block}_role_summary-till-categories &
+      width: 210px
 
 
   // $Panel actions
@@ -167,3 +295,35 @@ $block: ".cashup-panel"
 
     #{$block}_role_card-till-comparison &
       font-size: 16px
+
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      font-size: 16px
+
+
+  // $Panel text
+  &__text
+    display: block
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 400
+    color: $c-gray-ultra-dark
+
+    // $Panel text MOD: size small
+    &_size_s
+      font-size: 12px
+
+    // $Panel text MOD: size large
+    &_size_l
+      font-size: 16px
+
+
+  // $Panel text light
+  &__text-light
+    font-weight: 300
+
+
+  // $Panel text bold
+  &__text-bold
+    font-weight: 600

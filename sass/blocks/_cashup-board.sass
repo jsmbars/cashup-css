@@ -36,6 +36,11 @@ $block: ".cashup-board"
   // $Board MOD: role deposits
   &_role_deposits
 
+  // $Board MOD: role summary-income
+  &_role_summary-income
+    border: 1px solid $c-green-medium
+    background-color: $c-green-extra-light
+
   // $Board MOD: role pdq-summary
   &_role_pdq-summary
 
@@ -129,12 +134,58 @@ $block: ".cashup-board"
   &__layout
     display: block
 
+    #{$block}_role_summary-income &
+      width: 100%
+      min-width: 1360px
+
     // $Board layout MODL type row
     &_type_row
       display: flex
       flex-direction: row
       justify-content: flex-start
       align-items: flex-start
+
+
+  // $Layout group
+  &__layout-group
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+
+
+  // $Layout area
+  &__layout-area
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+    &:nth-child(1)
+      #{$block}_role_summary-income &
+        width: calc(90% - 480px)
+        padding-right: 10px
+        border-right: 1px solid $c-green-light
+
+    &:nth-child(2)
+      #{$block}_role_summary-income &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 260px
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-green-light
+
+    &:nth-child(3)
+      #{$block}_role_summary-income &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 220px
+        padding-left: 10px
 
 
   // $Board header
@@ -151,6 +202,9 @@ $block: ".cashup-board"
     // $Board content CONTEXT:  $Board STATE: closed
     #{$block}.is-closed &
       border-bottom: none
+
+    #{$block}_role_summary-income &
+      border-color: $c-green-light
 
 
   // $Board content

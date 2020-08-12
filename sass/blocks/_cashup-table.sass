@@ -251,6 +251,11 @@ $block: ".cashup-table"
     #{$block}_role_tills-report #{$block}__group_role_main &::-webkit-scrollbar
       display: none
 
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      background-color: transparent
+
     &:after
       #{$block}_role_tills-report &
         content: ''
@@ -268,6 +273,15 @@ $block: ".cashup-table"
     &_role_header,
     &_role_footer
       background-color: $c-gray-hyper-light
+
+    &_role_header
+      &:not(:last-child)
+        #{$block}_role_summary-till-category &,
+        #{$block}_role_summary-extra-income &,
+        #{$block}_role_summary-group-totals &
+          margin-bottom: 5px
+
+    &_role_footer
 
     // $Table row MOD: role form
     &_role_form
@@ -374,6 +388,14 @@ $block: ".cashup-table"
       padding: 10px 5px
       border-right: none
 
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      min-height: 0
+      padding: 5px 0
+      border-right: none
+      border-bottom: none
+
     #{$block}_role_tills-report #{$block}__group_role_footer &
       border-bottom: none
 
@@ -399,7 +421,10 @@ $block: ".cashup-table"
       #{$block}_role_card-till-comparison &,
       #{$block}_role_pdq-summary &,
       #{$block}_role_cash-report-comparison &,
-      #{$block}_role_tills-report &
+      #{$block}_role_tills-report &,
+      #{$block}_role_summary-till-category &,
+      #{$block}_role_summary-extra-income &,
+      #{$block}_role_summary-group-totals &
         border-left: none
 
     &:last-child
@@ -408,7 +433,10 @@ $block: ".cashup-table"
       #{$block}_role_card-till-comparison &,
       #{$block}_role_pdq-summary &,
       #{$block}_role_cash-report-comparison &,
-      #{$block}_role_tills-report &
+      #{$block}_role_tills-report &,
+      #{$block}_role_summary-till-category &,
+      #{$block}_role_summary-extra-income &,
+      #{$block}_role_summary-group-totals &
         border-right: none
 
     // $Table cell first column
@@ -473,6 +501,15 @@ $block: ".cashup-table"
       #{$block}_role_deposit-reports-current-site #{$block}__row:not(:last-child) &
         border-bottom: none
 
+      #{$block}_role_summary-till-category &
+        width: calc(100% - 140px)
+
+      #{$block}_role_summary-extra-income &
+        width: calc(100% - 70px)
+
+      #{$block}_role_summary-group-totals &
+        width: calc(100% - 140px)
+
       @media screen and (max-width: 1600px)
         #{$block}_role_pdq-summary &
           width: 20%
@@ -534,6 +571,21 @@ $block: ".cashup-table"
       #{$block}_role_deposit-reports-current-site &
         width: 18%
 
+      #{$block}_role_summary-till-category &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 70px
+
+      #{$block}_role_summary-extra-income &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 70px
+
+      #{$block}_role_summary-group-totals &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 70px
+
       @media screen and (max-width: 1600px)
         #{$block}_role_pdq-summary &
           width: 20%
@@ -588,6 +640,16 @@ $block: ".cashup-table"
 
       #{$block}_role_deposit-reports-current-site &
         width: 14%
+
+      #{$block}_role_summary-till-category &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 70px
+
+      #{$block}_role_summary-group-totals &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 70px
 
       @media screen and (max-width: 1600px)
         #{$block}_role_pdq-summary &
@@ -789,6 +851,11 @@ $block: ".cashup-table"
       font-weight: 600
       color: $c-gray-ultra-dark
 
+      #{$block}_role_summary-till-category &,
+      #{$block}_role_summary-extra-income &,
+      #{$block}_role_summary-group-totals &
+        font-size: 12px
+
       @media screen and (max-width: 1280px)
         #{$block}_role_wages-admin &
           font-size: 12px
@@ -801,6 +868,12 @@ $block: ".cashup-table"
 
     &_role_header
       border-top: 1px solid $c-gray-light
+
+      #{$block}_role_summary-till-category &,
+      #{$block}_role_summary-extra-income &,
+      #{$block}_role_summary-group-totals &
+        border-top: none
+        border-bottom: 1px solid $c-gray-medium
 
       #{$block}_role_configuration &
         justify-content: center
@@ -897,6 +970,11 @@ $block: ".cashup-table"
     #{$block}_role_pdq-summary #{$block}__cell:nth-child(4) &
       text-align: right
 
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      font-size: 12px
+
     #{$block}_role_payouts-today > &:last-child,
     #{$block}_role_payouts-regular > &:last-child,
     #{$block}_role_extra-income-today > &:last-child,
@@ -966,6 +1044,11 @@ $block: ".cashup-table"
     #{$block}_role_wages #{$block}__cell:nth-child(7) &,
     #{$block}_role_wages-admin #{$block}__cell:nth-child(11) &
       flex-grow: 1
+
+    #{$block}_role_summary-group-totals &
+      padding-left: 5px
+      padding-right: 5px
+      font-size: 12px
 
     &:not(:last-child)
       margin-right: 15px
