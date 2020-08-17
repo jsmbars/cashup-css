@@ -172,6 +172,9 @@ $block: ".cashup-form-textarea"
       background-color: $c-white
       border: 1px solid $c-gray-light
 
+      #{$block}_adjust_summary &
+        font-weight: 300
+
       @each $textarea-size-name, $textarea-height, $textarea-base-height in $textarea-sizes
         #{$block}_size_#{$textarea-size-name} &
           height: $textarea-height
@@ -271,13 +274,16 @@ $block: ".cashup-form-textarea"
       flex-grow: 1
       flex-shrink: 1
 
+    #{$block}_adjust_summary &
+      font-weight: 300
+
     @each $textarea-size-name, $textarea-height, $textarea-base-height in $textarea-sizes
       #{$block}_size_#{$textarea-size-name} &
         min-height: $textarea-height
         padding-top: floor(($textarea-base-height - 20px) / 2)
         padding-bottom: floor(($textarea-base-height - 20px) / 2)
 
-    @each $textarea-highlight-name, $textarea-highlight-background, $textarea-highlight-border in textarea-highlights
+    @each $textarea-highlight-name, $textarea-highlight-background, $textarea-highlight-border in $textarea-highlights
       #{$block}_highlight_#{$textarea-highlight-name} &
         background-color: $textarea-highlight-background
         border-color: $textarea-highlight-border

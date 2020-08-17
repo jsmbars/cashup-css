@@ -46,6 +46,11 @@ $block: ".cashup-board"
     border: 1px solid $c-red-medium
     background-color: $c-red-extra-light
 
+  // $Board MOD: role summary-totals
+  &_role_summary-totals
+    border: 1px solid $c-blue-medium
+    background-color: $c-blue-extra-light
+
   // $Board MOD: role pdq-summary
   &_role_pdq-summary
 
@@ -140,7 +145,8 @@ $block: ".cashup-board"
     display: block
 
     #{$block}_role_summary-income &,
-    #{$block}_role_summary-outgoings &
+    #{$block}_role_summary-outgoings &,
+    #{$block}_role_summary-totals &
       width: 100%
       min-width: 1360px
 
@@ -159,6 +165,10 @@ $block: ".cashup-board"
     justify-content: flex-start
     align-items: stretch
     width: 100%
+
+    &:not(:last-child)
+      #{$block}_role_summary-totals &
+        margin-bottom: 20px
 
 
   // $Layout area
@@ -182,6 +192,18 @@ $block: ".cashup-board"
         padding-right: 10px
         border-right: 1px solid $c-red-light
 
+      #{$block}_role_summary-totals &
+        width: 14%
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
+      #{$block}_role_summary-totals #{$block}__layout-group:last-child &
+        flex-grow: 0
+        flex-shrink: 1
+        width: 52%
+        padding-right: 10px
+        border-right: none
+
     &:nth-child(2)
       #{$block}_role_summary-income &
         flex-grow: 0
@@ -197,6 +219,12 @@ $block: ".cashup-board"
         padding-right: 10px
         border-right: 1px solid $c-red-light
 
+      #{$block}_role_summary-totals &
+        width: 19%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
     &:nth-child(3)
       #{$block}_role_summary-income &
         flex-grow: 0
@@ -210,9 +238,33 @@ $block: ".cashup-board"
         padding-right: 10px
         border-right: 1px solid $c-red-light
 
+      #{$block}_role_summary-totals &
+        width: 19%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
     &:nth-child(4)
       #{$block}_role_summary-outgoings &
         width: 18%
+        padding-left: 10px
+
+      #{$block}_role_summary-totals &
+        width: 14%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
+    &:nth-child(5)
+      #{$block}_role_summary-totals &
+        width: 20%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
+    &:nth-child(6)
+      #{$block}_role_summary-totals &
+        width: 14%
         padding-left: 10px
 
 
@@ -236,6 +288,9 @@ $block: ".cashup-board"
 
     #{$block}_role_summary-outgoings &
       border-color: $c-red-light
+
+    #{$block}_role_summary-totals &
+      border-color: $c-blue-light
 
 
   // $Board content
