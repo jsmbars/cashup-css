@@ -7,6 +7,9 @@
 
 //////////////////////////////////////// Block variables
 
+// $panel-text-color-name, $panel-text-color-value
+$panel-text-colors: ("pink-medium" $c-pink-medium, "red-medium" $c-red-medium, "orange-medium" $c-orange-medium, "yellow-medium" $c-yellow-medium, "green-medium" $c-green-medium, "turquoise-medium" $c-turquoise-medium, "blue-medium" $c-blue-medium, "purple-medium" $c-purple-medium, "gray-medium" $c-gray-medium, "gray-dark" $c-gray-dark, "gray-extra-dark" $c-gray-extra-dark)
+
 
 //////////////////////////////////////// Block mixins and functions
 
@@ -44,6 +47,60 @@ $block: ".cashup-panel"
     width: 300px
     border-radius: 0
 
+  // $Panel MOD: role summary till categories
+  // $Panel MOD: role summary till category
+  // $Panel MOD: role summary extra income
+  // $Panel MOD: role summary group totals
+  // $Panel MOD: role summary cards
+  // $Panel MOD: role summary security/djs/pr
+  // $Panel MOD: role summary redeemed deposits
+  // $Panel MOD: role summary payouts
+  // $Panel MOD: role summary totals report
+  // $Panel MOD: role summary daily report
+  // $Panel MOD: role summary week report
+  // $Panel MOD: role summary take
+  // $Panel MOD: role summary returned wages
+  // $Panel MOD: role summary cool it
+  &_role_summary-till-categories,
+  &_role_summary-till-category,
+  &_role_summary-extra-income,
+  &_role_summary-group-totals,
+  &_role_summary-cards,
+  &_role_summary-security-djs-pr,
+  &_role_summary-redeemed-deposits,
+  &_role_summary-payouts,
+  &_role_summary-totals,
+  &_role_summary-daily-report,
+  &_role_summary-week-report,
+  &_role_summary-take,
+  &_role_summary-returned-wages,
+  &_role_summary-cool-it
+    border-radius: 0
+    background-color: transparent
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+  &_role_summary-till-categories,
+  &_role_summary-extra-income,
+  &_role_summary-group-totals,
+  &_role_summary-cards,
+  &_role_summary-security-djs-pr,
+  &_role_summary-redeemed-deposits,
+  &_role_summary-payouts,
+  &_role_summary-totals,
+  &_role_summary-daily-report,
+  &_role_summary-week-report,
+  &_role_summary-take,
+  &_role_summary-returned-wages,
+  &_role_summary-cool-it
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+
 
   // $Panel header
   &__header
@@ -69,6 +126,72 @@ $block: ".cashup-panel"
       justify-content: center
       padding: 10px 15px 15px
 
+    #{$block}_role_summary-till-categories &,
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &,
+    #{$block}_role_summary-totals &,
+    #{$block}_role_summary-daily-report &,
+    #{$block}_role_summary-week-report &,
+    #{$block}_role_summary-take &,
+    #{$block}_role_summary-returned-wages &,
+    #{$block}_role_summary-cool-it &
+      padding: 0
+      border-bottom: none
+
+    #{$block}_role_summary-till-categories &
+      justify-content: space-between
+
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &,
+    #{$block}_role_summary-totals &,
+    #{$block}_role_summary-daily-report &,
+    #{$block}_role_summary-week-report &,
+    #{$block}_role_summary-take &,
+    #{$block}_role_summary-returned-wages &,
+    #{$block}_role_summary-cool-it &
+      flex-direction: column
+      justify-content: center
+      text-align: center
+
+
+  // $Panel header actions
+  &__header-actions
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+
+
+  // $Panel header action
+  &__header-action
+    flex-grow: 0
+    flex-shrink: 0
+
+    &:not(:last-child)
+      margin-right: 20px
+
+
+  // $Panel header group
+  &__header-group
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      #{$block}_role_summary-till-category &
+        margin-bottom: 10px
+
 
   // $Panel content
   &__content
@@ -85,6 +208,43 @@ $block: ".cashup-panel"
     #{$block}_role_pdq &
       padding: 15px
 
+    #{$block}_role_summary-till-categories &
+      padding-top: 25px
+
+    #{$block}_role_summary-till-category &
+      padding-top: 10px
+
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &,
+    #{$block}_role_summary-totals &,
+    #{$block}_role_summary-daily-report &,
+    #{$block}_role_summary-week-report &,
+    #{$block}_role_summary-take &,
+    #{$block}_role_summary-returned-wages &,
+    #{$block}_role_summary-cool-it &
+      padding-top: 10px
+      padding-bottom: 15px
+
+    #{$block}_role_summary-till-categories &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &,
+    #{$block}_role_summary-totals &,
+    #{$block}_role_summary-daily-report &,
+    #{$block}_role_summary-week-report &,
+    #{$block}_role_summary-take &,
+    #{$block}_role_summary-returned-wages &,
+    #{$block}_role_summary-cool-it &
+      flex-grow: 1
+      flex-shrink: 1
+
 
   // $Panel content inner
   &__content-inner
@@ -97,6 +257,55 @@ $block: ".cashup-panel"
       height: 100%
       overflow: hidden
 
+
+  // $Panel footer
+  &__footer
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    padding: 15px 20px
+    border-top: 1px solid $c-gray-extra-light
+
+    #{$block}_role_summary-till-categories &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &,
+    #{$block}_role_summary-totals &,
+    #{$block}_role_summary-daily-report &,
+    #{$block}_role_summary-week-report &,
+    #{$block}_role_summary-take &,
+    #{$block}_role_summary-returned-wages &,
+    #{$block}_role_summary-cool-it &
+      flex-direction: column
+      justify-content: center
+      padding: 10px 5px
+      border-top: none
+      text-align: center
+
+    #{$block}_role_summary-till-categories &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
+      background-color: $c-green-light
+
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &
+      background-color: $c-red-light
+
+    #{$block}_role_summary-totals &,
+    #{$block}_role_summary-daily-report &,
+    #{$block}_role_summary-week-report &,
+    #{$block}_role_summary-take &,
+    #{$block}_role_summary-returned-wages &,
+    #{$block}_role_summary-cool-it &
+      background-color: $c-blue-light
 
   // $Panel group
   &__group
@@ -121,6 +330,26 @@ $block: ".cashup-panel"
     #{$block}_role_tills &,
     #{$block}_role_till &
       padding: 15px 0
+
+
+  // $Panel list
+  &__list
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    flex-wrap: wrap
+    width: 100%
+
+  // $Panel list item
+  &__list-item
+    flex-grow: 0
+    flex-shrink: 0
+    padding-right: 10px
+    padding-bottom: 20px
+
+    #{$block}_role_summary-till-categories &
+      width: 210px
 
 
   // $Panel actions
@@ -167,3 +396,70 @@ $block: ".cashup-panel"
 
     #{$block}_role_card-till-comparison &
       font-size: 16px
+
+    #{$block}_role_summary-till-category &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &,
+    #{$block}_role_summary-totals &,
+    #{$block}_role_summary-daily-report &,
+    #{$block}_role_summary-week-report &,
+    #{$block}_role_summary-take &,
+    #{$block}_role_summary-returned-wages &,
+    #{$block}_role_summary-cool-it &
+      font-size: 16px
+
+
+  // $Panel text
+  &__text
+    display: block
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 400
+    color: $c-gray-ultra-dark
+
+    &:not(:last-child)
+      #{$block}_role_summary-till-category &,
+      #{$block}_role_summary-extra-income &,
+      #{$block}_role_summary-group-totals &,
+      #{$block}_role_summary-cards &,
+      #{$block}_role_summary-security-djs-pr &,
+      #{$block}_role_summary-redeemed-deposits &,
+      #{$block}_role_summary-payouts &,
+      #{$block}_role_summary-totals &,
+      #{$block}_role_summary-daily-report &,
+      #{$block}_role_summary-week-report &,
+      #{$block}_role_summary-take &,
+      #{$block}_role_summary-returned-wages &,
+      #{$block}_role_summary-cool-it &
+        margin-bottom: 10px
+
+    // $Panel text MOD: size small
+    &_size_s
+      font-size: 12px
+
+    // $Panel text MOD: size large
+    &_size_l
+      font-size: 16px
+
+    @each $panel-text-color-name, $panel-text-color-value in $panel-text-colors
+      &_color_#{$panel-text-color-name}
+        color: $panel-text-color-value
+
+
+  // $Panel text light
+  &__text-light
+    font-weight: 300
+
+
+  // $Panel text bold
+  &__text-bold
+    font-weight: 600
+
+
+  @each $panel-text-color-name, $panel-text-color-value in $panel-text-colors
+    &__text-#{$panel-text-color-name}
+      color: $panel-text-color-value

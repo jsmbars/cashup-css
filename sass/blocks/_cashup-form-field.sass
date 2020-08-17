@@ -211,6 +211,11 @@ $block: ".cashup-form-field"
       background-color: $c-white
       border: 1px solid $c-gray-light
 
+      #{$block}_adjust_summary &
+        padding-left: 5px
+        padding-right: 5px
+        font-size: 12px
+
       @each $field-size-name, $field-height in $field-sizes
         #{$block}_size_#{$field-size-name} &
           height: $field-height
@@ -356,13 +361,18 @@ $block: ".cashup-form-field"
       flex-shrink: 0
       width: 135px
 
+    #{$block}_adjust_summary &
+      padding-left: 5px
+      padding-right: 5px
+      font-size: 12px
+
     @each $field-size-name, $field-height in $field-sizes
       #{$block}_size_#{$field-size-name} &
         min-height: $field-height
         padding-top: floor(($field-height - 20px) / 2)
         padding-bottom: floor(($field-height - 20px) / 2)
 
-    @each $field-highlight-name, $field-highlight-background, $field-highlight-border in field-highlights
+    @each $field-highlight-name, $field-highlight-background, $field-highlight-border in $field-highlights
       #{$block}_highlight_#{$field-highlight-name} &
         background-color: $field-highlight-background
         border-color: $field-highlight-border

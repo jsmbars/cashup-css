@@ -301,7 +301,7 @@ $block: ".cashup-form-select"
         padding-top: floor(($select-height - 20px) / 2)
         padding-bottom: floor(($select-height - 20px) / 2)
 
-    @each $select-highlight-name, $select-highlight-background, $select-highlight-border in select-highlights
+    @each $select-highlight-name, $select-highlight-background, $select-highlight-border in $select-highlights
       #{$block}_highlight_#{$select-highlight-name} &
         background-color: $select-highlight-background
         border-color: $select-highlight-border

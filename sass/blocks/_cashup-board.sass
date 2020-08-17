@@ -36,6 +36,21 @@ $block: ".cashup-board"
   // $Board MOD: role deposits
   &_role_deposits
 
+  // $Board MOD: role summary-income
+  &_role_summary-income
+    border: 1px solid $c-green-medium
+    background-color: $c-green-extra-light
+
+  // $Board MOD: role summary-outgoings
+  &_role_summary-outgoings
+    border: 1px solid $c-red-medium
+    background-color: $c-red-extra-light
+
+  // $Board MOD: role summary-totals
+  &_role_summary-totals
+    border: 1px solid $c-blue-medium
+    background-color: $c-blue-extra-light
+
   // $Board MOD: role pdq-summary
   &_role_pdq-summary
 
@@ -129,12 +144,128 @@ $block: ".cashup-board"
   &__layout
     display: block
 
+    #{$block}_role_summary-income &,
+    #{$block}_role_summary-outgoings &,
+    #{$block}_role_summary-totals &
+      width: 100%
+      min-width: 1360px
+
     // $Board layout MODL type row
     &_type_row
       display: flex
       flex-direction: row
       justify-content: flex-start
       align-items: flex-start
+
+
+  // $Layout group
+  &__layout-group
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+
+    &:not(:last-child)
+      #{$block}_role_summary-totals &
+        margin-bottom: 20px
+
+
+  // $Layout area
+  &__layout-area
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+    &:nth-child(1)
+      #{$block}_role_summary-income &
+        width: calc(90% - 480px)
+        padding-right: 10px
+        border-right: 1px solid $c-green-light
+
+      #{$block}_role_summary-outgoings &
+        width: 18%
+        padding-right: 10px
+        border-right: 1px solid $c-red-light
+
+      #{$block}_role_summary-totals &
+        width: 14%
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
+      #{$block}_role_summary-totals #{$block}__layout-group:last-child &
+        flex-grow: 0
+        flex-shrink: 1
+        width: 52%
+        padding-right: 10px
+        border-right: none
+
+    &:nth-child(2)
+      #{$block}_role_summary-income &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 260px
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-green-light
+
+      #{$block}_role_summary-outgoings &
+        width: 30%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-red-light
+
+      #{$block}_role_summary-totals &
+        width: 19%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
+    &:nth-child(3)
+      #{$block}_role_summary-income &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 220px
+        padding-left: 10px
+
+      #{$block}_role_summary-outgoings &
+        width: 24%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-red-light
+
+      #{$block}_role_summary-totals &
+        width: 19%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
+    &:nth-child(4)
+      #{$block}_role_summary-outgoings &
+        width: 18%
+        padding-left: 10px
+
+      #{$block}_role_summary-totals &
+        width: 14%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
+    &:nth-child(5)
+      #{$block}_role_summary-totals &
+        width: 20%
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid $c-blue-light
+
+    &:nth-child(6)
+      #{$block}_role_summary-totals &
+        width: 14%
+        padding-left: 10px
 
 
   // $Board header
@@ -151,6 +282,15 @@ $block: ".cashup-board"
     // $Board content CONTEXT:  $Board STATE: closed
     #{$block}.is-closed &
       border-bottom: none
+
+    #{$block}_role_summary-income &
+      border-color: $c-green-light
+
+    #{$block}_role_summary-outgoings &
+      border-color: $c-red-light
+
+    #{$block}_role_summary-totals &
+      border-color: $c-blue-light
 
 
   // $Board content
