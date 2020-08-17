@@ -7,6 +7,9 @@
 
 //////////////////////////////////////// Block variables
 
+// $panel-text-color-name, $panel-text-color-value
+$panel-text-colors: ("pink-medium" $c-pink-medium, "red-medium" $c-red-medium, "orange-medium" $c-orange-medium, "yellow-medium" $c-yellow-medium, "green-medium" $c-green-medium, "turquoise-medium" $c-turquoise-medium, "blue-medium" $c-blue-medium, "purple-medium" $c-purple-medium, "gray-medium" $c-gray-medium, "gray-dark" $c-gray-dark, "gray-extra-dark" $c-gray-extra-dark)
+
 
 //////////////////////////////////////// Block mixins and functions
 
@@ -48,10 +51,18 @@ $block: ".cashup-panel"
   // $Panel MOD: role summary till category
   // $Panel MOD: role summary extra income
   // $Panel MOD: role summary group totals
+  // $Panel MOD: role summary cards
+  // $Panel MOD: role summary security/djs/pr
+  // $Panel MOD: role summary redeemed deposits
+  // $Panel MOD: role summary payouts
   &_role_summary-till-categories,
   &_role_summary-till-category,
   &_role_summary-extra-income,
-  &_role_summary-group-totals
+  &_role_summary-group-totals,
+  &_role_summary-cards,
+  &_role_summary-security-djs-pr,
+  &_role_summary-redeemed-deposits,
+  &_role_summary-payouts
     border-radius: 0
     background-color: transparent
 
@@ -60,7 +71,11 @@ $block: ".cashup-panel"
 
   &_role_summary-till-categories,
   &_role_summary-extra-income,
-  &_role_summary-group-totals
+  &_role_summary-group-totals,
+  &_role_summary-cards,
+  &_role_summary-security-djs-pr,
+  &_role_summary-redeemed-deposits,
+  &_role_summary-payouts
     flex-grow: 1
     flex-shrink: 1
     display: flex
@@ -96,7 +111,11 @@ $block: ".cashup-panel"
     #{$block}_role_summary-till-categories &,
     #{$block}_role_summary-till-category &,
     #{$block}_role_summary-extra-income &,
-    #{$block}_role_summary-group-totals &
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &
       padding: 0
       border-bottom: none
 
@@ -105,7 +124,11 @@ $block: ".cashup-panel"
 
     #{$block}_role_summary-till-category &,
     #{$block}_role_summary-extra-income &,
-    #{$block}_role_summary-group-totals &
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &
       flex-direction: column
       justify-content: center
       text-align: center
@@ -162,13 +185,21 @@ $block: ".cashup-panel"
       padding-top: 10px
 
     #{$block}_role_summary-extra-income &,
-    #{$block}_role_summary-group-totals &
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &
       padding-top: 10px
       padding-bottom: 15px
 
     #{$block}_role_summary-till-categories &,
     #{$block}_role_summary-extra-income &,
-    #{$block}_role_summary-group-totals &
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &
       flex-grow: 1
       flex-shrink: 1
 
@@ -198,12 +229,26 @@ $block: ".cashup-panel"
 
     #{$block}_role_summary-till-categories &,
     #{$block}_role_summary-extra-income &,
-    #{$block}_role_summary-group-totals &
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &
       justify-content: center
       padding: 10px
       border-top: none
       text-align: center
+
+    #{$block}_role_summary-till-categories &,
+    #{$block}_role_summary-extra-income &,
+    #{$block}_role_summary-group-totals &
       background-color: $c-green-light
+
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &
+      background-color: $c-red-light
 
 
   // $Panel group
@@ -298,7 +343,11 @@ $block: ".cashup-panel"
 
     #{$block}_role_summary-till-category &,
     #{$block}_role_summary-extra-income &,
-    #{$block}_role_summary-group-totals &
+    #{$block}_role_summary-group-totals &,
+    #{$block}_role_summary-cards &,
+    #{$block}_role_summary-security-djs-pr &,
+    #{$block}_role_summary-redeemed-deposits &,
+    #{$block}_role_summary-payouts &
       font-size: 16px
 
 
@@ -318,6 +367,10 @@ $block: ".cashup-panel"
     &_size_l
       font-size: 16px
 
+    @each $panel-text-color-name, $panel-text-color-value in $panel-text-colors
+      &_color_#{$panel-text-color-name}
+        color: $panel-text-color-value
+
 
   // $Panel text light
   &__text-light
@@ -327,3 +380,8 @@ $block: ".cashup-panel"
   // $Panel text bold
   &__text-bold
     font-weight: 600
+
+
+  @each $panel-text-color-name, $panel-text-color-value in $panel-text-colors
+    &__text-#{$panel-text-color-name}
+      color: $panel-text-color-value

@@ -1,0 +1,94 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Indicator
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".cashup-indicator"
+
+#{$block}
+  flex-grow: 0
+  flex-shrink: 0
+  display: inline-block
+  white-space: nowrap
+
+  // $Indicator MOD: position before
+  &_position_before
+    margin-right: 20px
+
+  // $Indicator MOD: position after
+  &_position_after
+    margin-left: 20px
+
+
+  // $Indicator icon
+  &__icon
+    display: inline-block
+    color: $c-gray-ultra-dark
+    vertical-align: middle
+
+    &:before
+      content: ''
+      display: inline-block
+      font-family: icons
+      font-size: 20px
+      line-height: 20px
+      font-weight: 400
+      color: inherit
+
+    &_size_xs
+      &:before
+        font-size: 16px
+        line-height: 16px
+
+    &_size_s
+      &:before
+        font-size: 18px
+        line-height: 18px
+
+    &_size_l
+      &:before
+        font-size: 22px
+        line-height: 22px
+
+    &_size_xl
+      &:before
+        font-size: 24px
+        line-height: 24px
+
+    &_size_extra
+      &:before
+        font-size: 30px
+        line-height: 30px
+
+    &_dj
+      &:before
+        content: '\e919'
+
+    &_pr
+      &:before
+        content: '\e91a'
+
+    &_security
+      &:before
+        content: '\e91b'
+
+    &_bank-payment
+      &:before
+        content: '\e91c'
+
+    &_card-payment
+      &:before
+        content: '\e91d'
+
+    &_online-payment
+      &:before
+        content: '\e91e'
