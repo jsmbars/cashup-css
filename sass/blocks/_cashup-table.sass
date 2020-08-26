@@ -380,6 +380,7 @@ $block: ".cashup-table"
 
   // $Table cell
   &__cell
+    position: relative
     flex-grow: 1
     display: flex
     flex-direction: row
@@ -756,7 +757,7 @@ $block: ".cashup-table"
         width: 235px
 
       #{$block}_role_security-djs-pr &
-        width: 10%
+        width: 8%
 
       #{$block}_role_djs-list &
         width: 15%
@@ -846,7 +847,7 @@ $block: ".cashup-table"
         width: 205px
 
       #{$block}_role_security-djs-pr &
-        width: 10%
+        width: 9.5%
 
       #{$block}_role_djs-list &
         width: 20%
@@ -902,7 +903,7 @@ $block: ".cashup-table"
     // $Table cell fifth column
     &:nth-child(5)
       #{$block}_role_security-djs-pr &
-        width: 10%
+        width: 9.5%
 
       #{$block}_role_djs-list &
         flex-grow: 0
@@ -952,7 +953,7 @@ $block: ".cashup-table"
     // $Table cell sixth column
     &:nth-child(6)
       #{$block}_role_security-djs-pr &
-        width: 10%
+        width: 8.5%
 
       #{$block}_role_wages &
         width: 11%
@@ -984,7 +985,7 @@ $block: ".cashup-table"
     // $Table cell seventh column
     &:nth-child(7)
       #{$block}_role_security-djs-pr &
-        width: 10%
+        width: 9%
 
       #{$block}_role_wages &
         flex-grow: 0
@@ -1007,7 +1008,7 @@ $block: ".cashup-table"
     // $Table cell eighth column
     &:nth-child(8)
       #{$block}_role_security-djs-pr &
-        width: 10%
+        width: 8.5%
 
       #{$block}_role_wages-admin &
         width: 7%
@@ -1021,6 +1022,15 @@ $block: ".cashup-table"
     // $Table cell ninth column
     &:nth-child(9)
       #{$block}_role_security-djs-pr &
+        justify-content: center
+        width: 7%
+
+      #{$block}_role_wages-admin &
+        width: 10%
+
+    // $Table cell tenth column
+    &:nth-child(10)
+      #{$block}_role_security-djs-pr &
         flex-grow: 0
         flex-shrink: 0
         width: 235px
@@ -1032,12 +1042,6 @@ $block: ".cashup-table"
         #{$block}_role_security-djs-pr &
           width: 225px
 
-    // $Table cell tenth column
-    &:nth-child(10)
-      #{$block}_role_wages-admin &
-        width: 10%
-
-      @media screen and (max-width: 1600px)
         #{$block}_role_wages-admin &
           width: 9%
 
@@ -1127,6 +1131,10 @@ $block: ".cashup-table"
         #{$block}_role_wages-admin &
           text-align: center
 
+      &:nth-child(9)
+        #{$block}_role_security-djs-pr &
+          text-align: center
+
     &_role_footer
       &:nth-child(1)
         #{$block}_role_deposit-reports-current-site &
@@ -1157,6 +1165,7 @@ $block: ".cashup-table"
     #{$block}_role_configuration #{$block}__cell:nth-child(3) &
       padding-right: 10px
 
+    #{$block}_role_security-djs-pr #{$block}__cell:nth-child(9) &,
     #{$block}_role_wages #{$block}__cell:nth-child(5) &,
     #{$block}_role_wages #{$block}__cell:nth-child(6) &,
     #{$block}_role_wages-admin #{$block}__cell:nth-child(5) &,

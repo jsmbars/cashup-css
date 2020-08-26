@@ -1,0 +1,203 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Corner
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+// $corner-size-name, $corner-size, $corner-icon-size, $corner-icon-space, $corner-label-size, $corner-label-space
+$corner-sizes: ("xxs" 25px 10px 2px 7px 2px, "xs" 30px 12px 3px 8px 2px, "s" 35px 14px 3px 9px 2px, "m" 40px 16px 4px 10px 3px, "l" 45px 18px 4px 11px 4px, "xl" 50px 20px 5px 12px 4px, "xxl" 55px 22px 5px 13px 4px)
+
+// $corner-accent-medium-color-name, $corner-accent-medium-color-value
+$corner-accent-medium-colors: ("pink-medium" $c-pink-medium, "red-medium" $c-red-medium, "orange-medium" $c-orange-medium, "yellow-medium" $c-yellow-medium, "green-medium" $c-green-medium, "turquoise-medium" $c-turquoise-medium, "blue-medium" $c-blue-medium, "purple-medium" $c-purple-medium)
+
+// $corner-icon-name, $corner-glyph-code
+$corner-icons: ("alert" "e912", "api" "e91f")
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".cashup-corner"
+
+#{$block}
+  position: absolute
+  z-index: 0
+  display: block
+  width: 40px
+  height: 40px
+  overflow: hidden
+
+  // $Corner MOD: position top right
+  &_position_top-right
+    top: 0
+    right: 0
+
+  // $Corner MOD: position top left
+  &_position_top-left
+    top: 0
+    left: 0
+
+  // $Corner MOD: position bottom right
+  &_position_bottom-right
+    bottom: 0
+    right: 0
+
+  // $Corner MOD: position bottom left
+  &_position_bottom-left
+    bottom: 0
+    left: 0
+
+  // Accent medium color and border modifiers
+  @each $corner-accent-medium-color-name, $corner-accent-medium-color-value in $corner-accent-medium-colors
+    &_color_#{$corner-accent-medium-color-name}#{&}_position_top-right
+      background-image: linear-gradient(45deg, transparent 0%, transparent 50%, $corner-accent-medium-color-value 50%, $corner-accent-medium-color-value 100%)
+
+    &_color_#{$corner-accent-medium-color-name}#{&}_position_top-left
+      background-image: linear-gradient(-45deg, transparent 0%, transparent 50%, $corner-accent-medium-color-value 50%, $corner-accent-medium-color-value 100%)
+
+    &_color_#{$corner-accent-medium-color-name}#{&}_position_bottom-right
+      background-image: linear-gradient(135deg, transparent 0%, transparent 50%, $corner-accent-medium-color-value 50%, $corner-accent-medium-color-value 100%)
+
+    &_color_#{$corner-accent-medium-color-name}#{&}_position_bottom-left
+      background-image: linear-gradient(-135deg, transparent 0%, transparent 50%, $corner-accent-medium-color-value 50%, $corner-accent-medium-color-value 100%)
+
+  // Size modifiers
+  @each $corner-size-name, $corner-size, $corner-icon-size, $corner-icon-space, $corner-label-size, $corner-label-space in $corner-sizes
+    &_size_#{$corner-size-name}
+      width: $corner-size
+      height: $corner-size
+
+  // $Corner label
+  &__label
+    position: absolute
+    z-index: 1
+    font-family: $f-sans
+    font-size: 10px
+    line-height: 10px
+    letter-spacing: 1px
+    color: #fff
+    text-align: center
+    overflow: hidden
+
+    // $Corner label CONTEXT: $Corner MOD: position top right
+    #{$block}_position_top-right &
+      top: 50%
+      right: 50%
+      padding-bottom: 2px
+      transform-origin: 50% 100%
+      transform: translate(50%, -100%) rotate(45deg)
+
+    // $Corner label CONTEXT: $Corner MOD: position top left
+    #{$block}_position_top-left &
+      top: 50%
+      left: 50%
+      padding-bottom: 2px
+      transform-origin: 50% 100%
+      transform: translate(-50%, -100%) rotate(-45deg)
+
+    // $Corner label CONTEXT: $Corner MOD: position bottom right
+    #{$block}_position_bottom-right &
+      bottom: 50%
+      right: 50%
+      padding-top: 2px
+      transform-origin: 50% 0
+      transform: translate(50%, 100%) rotate(-45deg)
+
+    // $Corner label CONTEXT: $Corner MOD: position bottom left
+    #{$block}_position_bottom-left &
+      bottom: 50%
+      left: 50%
+      padding-top: 2px
+      transform-origin: 50% 0
+      transform: translate(-50%, 100%) rotate(45deg)
+
+    // Size modifiers
+    @each $corner-size-name, $corner-size, $corner-icon-size, $corner-icon-space, $corner-label-size, $corner-label-space in $corner-sizes
+      #{$block}_size_#{$corner-size-name} &
+        font-size: $corner-label-size
+        line-height: $corner-label-size
+
+      #{$block}_size_#{$corner-size-name}#{$block}_position_top-right &
+        padding-bottom: $corner-label-space
+
+      #{$block}_size_#{$corner-size-name}#{$block}_position_top-left &
+        padding-bottom: $corner-label-space
+
+      #{$block}_size_#{$corner-size-name}#{$block}_position_bottom-right &
+        padding-top: $corner-label-space
+
+      #{$block}_size_#{$corner-size-name}#{$block}_position_bottom-left &
+        padding-top: $corner-label-space
+
+
+    // $Corner icon
+  &__icon
+    position: absolute
+    z-index: 1
+    display: block
+    width: 16px
+    height: 16px
+
+    // $Corner icon CONTEXT: $Corner MOD: position top right
+    #{$block}_position_top-right &
+      top: 4px
+      right: 4px
+
+    // $Corner icon CONTEXT: $Corner MOD: position top left
+    #{$block}_position_top-left &
+      top: 4px
+      left: 4px
+
+    // $Corner icon CONTEXT: $Corner MOD: position bottom right
+    #{$block}_position_bottom-right &
+      bottom: 4px
+      right: 4px
+
+    // $Corner icon CONTEXT: $Corner MOD: position bottom left
+    #{$block}_position_bottom-left &
+      bottom: 4px
+      left: 4px
+
+    &:before
+      content: ''
+      font-family: icons
+      font-size: 16px
+      line-height: 16px
+      color: $c-white
+      vertical-align: top
+
+    // Size modifiers
+    @each $corner-size-name, $corner-size, $corner-icon-size, $corner-icon-space, $corner-label-size, $corner-label-space in $corner-sizes
+      #{$block}_size_#{$corner-size-name} &
+        width: $corner-icon-size
+        height: $corner-icon-size
+
+        &:before
+          font-size: $corner-icon-size
+          line-height: $corner-icon-size
+
+      #{$block}_size_#{$corner-size-name}#{$block}_position_top-right &
+        top: $corner-icon-space
+        right: $corner-icon-space
+
+      #{$block}_size_#{$corner-size-name}#{$block}_position_top-left &
+        top: $corner-icon-space
+        left: $corner-icon-space
+
+      #{$block}_size_#{$corner-size-name}#{$block}_position_bottom-right &
+        bottom: $corner-icon-space
+        right: $corner-icon-space
+
+      #{$block}_size_#{$corner-size-name}#{$block}_position_bottom-left &
+        bottom: $corner-icon-space
+        left: $corner-icon-space
+
+    // Icon modifiers
+    @each $corner-icon-name, $corner-icon-glyph in $corner-icons
+      &_#{$corner-icon-name}
+        &:before
+          content: unquote("\'\\#{$corner-icon-glyph}\'")
+
